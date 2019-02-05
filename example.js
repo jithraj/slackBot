@@ -2,6 +2,7 @@ const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
 
 var token='xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk';
+var port=process.env.PORT || 3000;
 
 var express=require('express');
 const app = express();
@@ -16,4 +17,9 @@ const web=new WebClient(token);
 
 app.post('/about',(req,res)=>{
     console.log(req);
+    res.send(`<p>killer</p>`);
 });
+
+app.listen(port,()=>{
+  console.log(`server is started at Port ${port}`)
+})
