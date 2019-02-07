@@ -15,7 +15,7 @@ const web=new WebClient(token);
 // rtm.start();
 
 
-app.post('/about',(req,res)=>{
+app.post('/',(req,res)=>{
     console.log(JSON.stringify(req.body,undefined,2));
     res.sendStatus(200);
 });
