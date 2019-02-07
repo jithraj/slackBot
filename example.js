@@ -16,7 +16,7 @@ const web=new WebClient(token);
 
 
 app.post('/',(req,res)=>{
-    console.log(typeof(req));
+    console.log(JSON.stringify(req,undefined,2));
     res.sendStatus(200);
 });
 
