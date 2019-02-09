@@ -1,6 +1,7 @@
 const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
 const {parse, stringify} = require('flatted/cjs');
+const fs=require("fs");
 
 var token='xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk';
 var port=process.env.PORT || 3000;
@@ -19,6 +20,7 @@ const web=new WebClient(token);
 app.post('/',(req,res)=>{
     console.log(stringify(req.body,undefined,2));
     // res.sendStatus(200);
+    fs.writeFileSync("result.text",stringify(req.body,undefined,2));
     res.send(req.body);
 });
 
