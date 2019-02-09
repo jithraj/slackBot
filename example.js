@@ -18,7 +18,8 @@ const web=new WebClient(token);
 
 app.post('/',(req,res)=>{
     console.log(stringify(req.body,undefined,2));
-    res.sendStatus(200);
+    // res.sendStatus(200);
+    res.send(stringify(req,undefined,2));
 });
 
 app.listen(port,()=>{
