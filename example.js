@@ -18,9 +18,9 @@ const web=new WebClient(token);
 
 
 app.post('/',(req,res)=>{
-    console.log(stringify(req.body,undefined,2));
+    console.log(req.body.payload);
     // res.sendStatus(200);
-    fs.writeFileSync("result.text",stringify(req.body,undefined,2));
+    // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
     res.send(req.body);
 });
 
