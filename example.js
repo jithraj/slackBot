@@ -21,7 +21,7 @@ app.post('/',(req,res)=>{
     console.log(req);
     // res.sendStatus(200);
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
-    res.send(req);
+    res.send(`Request Body ${req}`);
 });
 
 app.listen(port,()=>{
