@@ -24,7 +24,7 @@ app.use('/', slackInteractions.expressMiddleware());
 
 app.post('/',(req,res)=>{
     //console.log(JSON.parse(req.body.payload));
-    console.log(JSON.parse(req.body['payload'])['response_url']);
+    console.log(JSON.parse(req.body['payload']));
     //console.log(stringify(req,undefined,2));
     // res.sendStatus(200);
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
