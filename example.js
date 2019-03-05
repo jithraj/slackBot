@@ -1,8 +1,11 @@
 const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
+const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const fs=require("fs");
 
+
+const slackInteractions = createMessageAdapter('xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk');
 var token='xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk';
 var port=process.env.PORT || 3000;
 
@@ -17,9 +20,11 @@ const web=new WebClient(token);
 // rtm.start();
 
 
+app.use('/', slackInteractions.expressMiddleware());
+
 app.post('/',(req,res)=>{
     //console.log(JSON.parse(req.body.payload));
-    console.log(stringify(req.body,undefined,2));
+    console.log(stringify(req,undefined,2));
     // res.sendStatus(200);
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
     res.send(`Request Body ${req.payload}`);
