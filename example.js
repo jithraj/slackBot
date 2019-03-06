@@ -23,7 +23,7 @@ const web=new WebClient(token);
 //app.use('/', slackInteractions.expressMiddleware());
 
 app.post('/',(req,res)=>{
-    console.log(JSON.parse(req['payload']));
+    console.log(JSON.parse(req[0]));
     //console.log('killers');
     //console.log(JSON.parse(req.body['payload'])['response_url']);
     //console.log(stringify(req,undefined,2));
