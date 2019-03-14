@@ -30,7 +30,7 @@ app.post('/',(req,res)=>{
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
     res.send(`Request Body ${req.payload}`);
 
-    slackInteractions.action('welcome_agree_button', (payload, respond) => {
+    slackInteractions.action({ type: 'button' }, (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
      
