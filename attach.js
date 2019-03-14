@@ -5,7 +5,7 @@ var msg={
         {
             "text": "Choose a game to play",
             "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
+            "callback_id": "aspire",
             "color": "#3AA3E3",
             "attachment_type": "default",
             "actions": [
@@ -48,7 +48,7 @@ var msg1={
             "fallback": "If you could read this message, you'd be choosing something fun to do right now.",
             "color": "#3AA3E3",
             "attachment_type": "default",
-            "callback_id": "game_selection",
+            "callback_id": "aspire",
             "actions": [
                 {
                     "name": "games_list",
