@@ -19,8 +19,9 @@ const rtm = new RTMClient(token);
 const web=new WebClient(token);
 // rtm.start();
 
-//app.use('/', slackInteractions.expressMiddleware());
+app.use('/', slackInteractions.expressMiddleware());
 
+/*
 app.post('/',(req,res)=>{
     //console.log(JSON.parse(req.body));
     console.log('killers@work');
@@ -32,8 +33,9 @@ app.post('/',(req,res)=>{
 
 
 });
+*/
 
-/*
+
 slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
@@ -63,7 +65,7 @@ slackInteractions.action('aspire', (payload, respond) => {
       delete reply.attachments[0].actions;
       return reply;
 });
-*/
+
 app.listen(port,()=>{
   console.log(`server is started at Port ${port}`)
 })
