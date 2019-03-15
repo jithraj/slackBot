@@ -19,9 +19,9 @@ const rtm = new RTMClient(token);
 const web=new WebClient(token);
 // rtm.start();
 
-app.use('', slackInteractions.expressMiddleware());
+app.use('/', slackInteractions.expressMiddleware());
 
-app.post('',(req,res)=>{
+app.post('/',(req,res)=>{
     //console.log(JSON.parse(req.body));
     console.log('killers@work');
     //console.log(JSON.parse(req.body['payload'])['response_url']);
