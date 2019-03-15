@@ -1,7 +1,7 @@
 const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
 
-var token='xoxb-438796475940-484443322628-rrIIuI7do45WFN5Un3ckeLSA';
+var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
 var mysql=require("mysql");
 var axios=require("axios");
 var attach=require("./attach.js");

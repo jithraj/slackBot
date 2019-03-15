@@ -5,8 +5,8 @@ const {parse, stringify} = require('flatted/cjs');
 const fs=require("fs");
 
 
-const slackInteractions = createMessageAdapter('xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk');
-var token='xoxb-430629803749-502031246023-Q4ZCCpM463ocVvX0ghqIOEDk';
+const slackInteractions = createMessageAdapter('xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4');
+var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
 var port=process.env.PORT || 3000;
 
 var express=require('express');
@@ -25,7 +25,7 @@ app.post('/',(req,res)=>{
     //console.log(JSON.parse(req.body));
     //console.log('killers');
     //console.log(JSON.parse(req.body['payload'])['response_url']);
-    console.log(stringify(req.body,undefined,2));
+    console.log(stringify(req,undefined,2));
     // res.sendStatus(200);
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
     res.send(`Request Body ${req.payload}`);
