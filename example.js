@@ -5,7 +5,7 @@ const {parse, stringify} = require('flatted/cjs');
 const fs=require("fs");
 
 
-const slackInteractions = createMessageAdapter('xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4');
+const slackInteractions = createMessageAdapter('f39a58a498ddbde21ba757ee89d333ad');
 var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
 var port=process.env.PORT || 3000;
 
