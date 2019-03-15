@@ -28,7 +28,7 @@ app.post('/',(req,res)=>{
     //console.log(stringify(req,undefined,2));
     // res.sendStatus(200);
     // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
-    res.send(`Request Body ${req.payload}`);
+    res.send(`Request Body ${JSON.parse(req.body['payload'])['response_url']}`);
 
 
 });
