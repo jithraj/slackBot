@@ -33,6 +33,36 @@ app.post('/',(req,res)=>{
 
 });
 
+slackInteractions.action('aspire', (payload, respond) => {
+      // `payload` is an object that describes the interaction
+      console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
+     
+      // Your app does some work using information in the payload
+      users.findBySlackId(payload.user.id)
+        .then(user => user.acceptPolicyAndSave())
+        .then(() => {
+          // After the asynchronous work is done, call `respond()` with a message object to update the
+          // message.
+          const message = {
+            text: 'Thank you for agreeing to the team\'s policy.',
+          };
+          respond(message);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error(error);
+          respond({
+            text: 'An error occurred while recording your agreement. Please contact an admin.'
+          });
+        });
+     
+      // Before the work completes, return a message object that is the same as the original but with
+      // the interactive elements removed.
+      const reply = payload.original_message;
+      delete reply.attachments[0].actions;
+      return reply;
+});
+
 app.listen(port,()=>{
   console.log(`server is started at Port ${port}`)
 })
