@@ -1,7 +1,7 @@
 const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
 
-var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
+var token='xoxb-438796475940-484443322628-rrIIuI7do45WFN5Un3ckeLSA';
 var mysql=require("mysql");
 var axios=require("axios");
 var attach=require("./attach.js");
@@ -152,13 +152,13 @@ rtm.on('authenticated', (rtmStartData) => {
 rtm.on('message',(message)=>{
    console.log(JSON.stringify(message,undefined,2));
   
-   if ( (message.subtype && message.subtype === 'bot_message') ||
-       (!message.subtype && message.user === rtm.activeUserId) ) {
-    return;
-  }
+   //if ( (message.subtype && message.subtype === 'bot_message') ||
+   //    (!message.subtype && message.user === rtm.activeUserId) ) {
+   // return;
+   //}
   
-   attach.msg.channel=message.channel;
-  web.chat.postMessage(attach.msg)
+   attach.msg1.channel=message.channel;
+  web.chat.postMessage(attach.msg1)
   .then((res)=>{
      console.log(res);
      throw {error:"just kidding"};
