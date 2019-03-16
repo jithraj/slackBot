@@ -22,15 +22,6 @@ const web=new WebClient(token);
 app.use('/', slackInteractions.expressMiddleware());
 
 
-app.post('/',(req,res)=>{
-    //console.log(JSON.parse(req.body));
-    console.log('killers@work');
-    //console.log(JSON.parse(req.body['payload'])['response_url']);
-    //console.log(stringify(req,undefined,2));
-    // res.sendStatus(200);
-    // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
-    //res.send(`Request Body ${JSON.parse(req.body['payload'])['response_url']}`);
-        
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
@@ -61,8 +52,20 @@ app.post('/',(req,res)=>{
       return reply;
     });
 
-});
 
+/*
+app.post('/',(req,res)=>{
+    //console.log(JSON.parse(req.body));
+    console.log('killers@work');
+    //console.log(JSON.parse(req.body['payload'])['response_url']);
+    //console.log(stringify(req,undefined,2));
+    // res.sendStatus(200);
+    // fs.writeFileSync("result.text",stringify(req.body,undefined,2));
+    //res.send(`Request Body ${JSON.parse(req.body['payload'])['response_url']}`);
+        
+
+});
+*/
 
 
 
