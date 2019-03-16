@@ -25,7 +25,7 @@ app.use('/', slackInteractions.expressMiddleware());
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-      console.log(`${payload}`);
+      console.log(parse(payload));
      
       // Your app does some work using information in the payload
       users.findBySlackId(payload.user.id)
