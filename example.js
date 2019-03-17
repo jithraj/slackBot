@@ -2,6 +2,8 @@ const { RTMClient } = require('@slack/client');
 const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
+const axios=require('axios');
+
 const fs=require("fs");
 
 
@@ -18,6 +20,7 @@ const app = express();
 const rtm = new RTMClient(token);
 const web=new WebClient(token);
 // rtm.start();
+var flag='normal';
 
 app.use('/', slackInteractions.expressMiddleware());
 
@@ -25,32 +28,22 @@ app.use('/', slackInteractions.expressMiddleware());
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-      console.log(JSON.stringify(payload,undefined,2));
+      //console.log(JSON.stringify(payload,undefined,2));
+      console.log(JSON.stringify(respond,undefined,2));
+
+      if(payload.actions[0].type=="select")
+      {
+        if(payload.actions[0].selected_options[0].values=="weather")
+        {
+          
+        }
+      }
      
-      // Your app does some work using information in the payload
-      users.findBySlackId(payload.user.id)
-        .then(user => user.acceptPolicyAndSave())
-        .then(() => {
-          // After the asynchronous work is done, call `respond()` with a message object to update the
-          // message.
-          const message = {
-            text: 'Thank you for agreeing to the team\'s policy.',
-          };
-          respond(message);
-        })
-        .catch((error) => {
-          // Handle errors
-          console.error(error);
-          respond({
-            text: 'An error occurred while recording your agreement. Please contact an admin.'
-          });
-        });
+      
      
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
-      const reply = payload.original_message;
-      delete reply.attachments[0].actions;
-      return reply;
+      
     });
 
 
