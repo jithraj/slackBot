@@ -28,7 +28,7 @@ app.use('/', slackInteractions.expressMiddleware());
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-      console.log(JSON.stringify(payload,undefined,2));
+      //console.log(JSON.stringify(payload,undefined,2));
       //console.log(JSON.stringify(respond,undefined,2));
       console.log(payload.actions[0].selected_options[0]);
 
@@ -36,7 +36,6 @@ app.use('/', slackInteractions.expressMiddleware());
       {
         if(payload.actions[0].selected_options[0].value=="weather")
         {
-          respond("Hey");
           console.log("Think about response");
         }
       }
