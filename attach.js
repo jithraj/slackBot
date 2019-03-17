@@ -10,23 +10,23 @@ var msg={
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "game",
+                    "name": "google",
                     "text": "Google Search",
                     "type": "button",
-                    "value": "chess"
+                    "value": "google"
                 },
                 {
-                    "name": "game",
+                    "name": "twitter",
                     "text": "Twitter",
                     "type": "button",
-                    "value": "maze"
+                    "value": "twitter"
                 },
                 {
-                    "name": "game",
+                    "name": "weather",
                     "text": "Our Own App",
                     "style": "danger",
                     "type": "button",
-                    "value": "war",
+                    "value": "weather",
                     "confirm": {
                         "title": "Are you sure?",
                         "text": "This Product is not completely ready",
@@ -57,15 +57,15 @@ var msg1={
                     "options": [
                         {
                             "text": "Google Search",
-                            "value": "hearts"
+                            "value": "google"
                         },
                         {
                             "text": "Twitter",
-                            "value": "bridge"
+                            "value": "twitter"
                         },
                         {
                             "text": "Our App",
-                            "value": "checkers"
+                            "value": "weather"
                         }
                     ]
                 }
