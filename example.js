@@ -40,11 +40,11 @@ app.use('/', slackInteractions.expressMiddleware());
         {
           console.log("Think about response");
           flag=1;
-        //   rtm.sendMessage(response, message.channel).then((res)=>{
-        //     console.log(JSON.stringify(res,undefined,2));
-        //  }).catch((error)=>{
-        //     console.log(error);
-        //  });
+          rtm.sendMessage("Hey how are you", payload.channel.id).then((res)=>{
+            console.log(JSON.stringify(res,undefined,2));
+         }).catch((error)=>{
+            console.log(error);
+         });
         }
       }
      
