@@ -43,7 +43,7 @@ rtm.on('message', (message) => {
             debugger;
 
             axios.get('https://evening-brook-60598.herokuapp.com/?q=${message.text}').then(function (response) {
-               console.log(JSON.stringify(message,undefined,2);     
+               console.log(JSON.stringify(message,undefined,2));     
                console.log(response);
             })
             .catch(function (error) {
