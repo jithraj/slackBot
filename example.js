@@ -5,12 +5,6 @@ const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
 
 
-
-const rtm = new RTMClient(token);
-const web=new WebClient(token);
-rtm.start();
-
-
 const fs=require("fs");
 
 
@@ -26,8 +20,9 @@ const app = express();
 
 const rtm = new RTMClient(token);
 const web=new WebClient(token);
-// rtm.start();
-var flag=0;
+rtm.start();
+
+ var flag=0;
 
 app.use('/', slackInteractions.expressMiddleware());
 
