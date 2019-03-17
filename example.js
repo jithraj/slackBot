@@ -30,7 +30,7 @@ app.use('/', slackInteractions.expressMiddleware());
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
       console.log(JSON.stringify(payload,undefined,2));
       //console.log(JSON.stringify(respond,undefined,2));
-      console.log(payload.actions[0].selected_options[0].value);
+      console.log(payload.actions[0].selected_options[0]);
 
       if(payload.actions[0].type=="select")
       {
