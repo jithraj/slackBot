@@ -26,6 +26,35 @@ rtm.start();
 
 app.use('/', slackInteractions.expressMiddleware());
 
+rtm.on('message', (message) => {
+  // For structure of `message`, see https://api.slack.com/events/message
+
+  // Skip messages that are from a bot or my own user ID
+  if ( (message.subtype && message.subtype === 'bot_message') ||
+       (!message.subtype && message.user === rtm.activeUserId) ) {
+    return;
+  }
+
+
+  if (message.text !== null && flag==1)
+  {
+            message.text = message.text.replace(/<@UE8D19GJG>/i, "");
+            //console.log(message.text); 
+            debugger;
+
+            axios.get('https://evening-brook-60598.herokuapp.com/?q=${message.text}').then(function (response) {
+                    console.log(response);
+            })
+            .catch(function (error) {
+                 console.log(error);
+            }
+        
+           
+  }
+  // Log the message
+  console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
+ });
+
 
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
@@ -40,7 +69,7 @@ app.use('/', slackInteractions.expressMiddleware());
         {
           console.log("Think about response");
           flag=1;
-          rtm.sendMessage("Hey how are you", payload.channel.id).then((res)=>{
+          rtm.sendMessage("Please Enter the Place name that you want the information of", payload.channel.id).then((res)=>{
             console.log(JSON.stringify(res,undefined,2));
          }).catch((error)=>{
             console.log(error);
