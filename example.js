@@ -39,10 +39,10 @@ rtm.on('message', (message) => {
   if (message.text !== null && flag==1)
   {
             message.text = message.text.replace(/<@UE8D19GJG>/i, "");
-            //console.log(message.text); 
+            console.log(message.text); 
             debugger;
 
-            axios.get('https://evening-brook-60598.herokuapp.com/?q=${message.text}').then(function (response) {
+            axios.get(`https://evening-brook-60598.herokuapp.com/?q=${message.text}`).then(function (response) {
                console.log(JSON.stringify(message,undefined,2));     
                console.log(response);
             })
@@ -71,7 +71,7 @@ rtm.on('message', (message) => {
           console.log("Think about response");
           flag=1;
           rtm.sendMessage("Please Enter the Place name that you want the information of", payload.channel.id).then((res)=>{
-            console.log(JSON.stringify(res,undefined,2));
+            //console.log(JSON.stringify(res,undefined,2));
          }).catch((error)=>{
             console.log(error);
          });
