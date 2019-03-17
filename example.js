@@ -3,6 +3,14 @@ const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
+const { RTMClient } = require('@slack/client');
+const { WebClient } = require('@slack/client');
+
+
+const rtm = new RTMClient(token);
+const web=new WebClient(token);
+rtm.start();
+
 
 const fs=require("fs");
 
@@ -20,7 +28,7 @@ const app = express();
 const rtm = new RTMClient(token);
 const web=new WebClient(token);
 // rtm.start();
-var flag='normal';
+var flag=0;
 
 app.use('/', slackInteractions.expressMiddleware());
 
@@ -28,7 +36,7 @@ app.use('/', slackInteractions.expressMiddleware());
     slackInteractions.action('aspire', (payload, respond) => {
       // `payload` is an object that describes the interaction
       console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-      //console.log(JSON.stringify(payload,undefined,2));
+      console.log(JSON.stringify(payload,undefined,2));
       //console.log(JSON.stringify(respond,undefined,2));
       console.log(payload.actions[0].selected_options[0]);
 
@@ -37,6 +45,12 @@ app.use('/', slackInteractions.expressMiddleware());
         if(payload.actions[0].selected_options[0].value=="weather")
         {
           console.log("Think about response");
+          flag=1;
+          rtm.sendMessage(response, message.channel).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+         }).catch((error)=>{
+            console.log(error);
+         });
         }
       }
      
