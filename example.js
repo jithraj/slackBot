@@ -36,6 +36,7 @@ app.use('/', slackInteractions.expressMiddleware());
         if(payload.actions[0].selected_options[0].values=="weather")
         {
           respond("Hey");
+          console.log("Think about response")
         }
       }
      
