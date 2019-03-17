@@ -47,7 +47,7 @@ rtm.on('message', (message) => {
             })
             .catch(function (error) {
                  console.log(error);
-            }
+            })
         
            
   }
