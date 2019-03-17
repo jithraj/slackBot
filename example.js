@@ -3,8 +3,7 @@ const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
-const { RTMClient } = require('@slack/client');
-const { WebClient } = require('@slack/client');
+
 
 
 const rtm = new RTMClient(token);
@@ -46,11 +45,11 @@ app.use('/', slackInteractions.expressMiddleware());
         {
           console.log("Think about response");
           flag=1;
-          rtm.sendMessage(response, message.channel).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-         }).catch((error)=>{
-            console.log(error);
-         });
+        //   rtm.sendMessage(response, message.channel).then((res)=>{
+        //     console.log(JSON.stringify(res,undefined,2));
+        //  }).catch((error)=>{
+        //     console.log(error);
+        //  });
         }
       }
      
