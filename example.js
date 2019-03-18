@@ -48,7 +48,7 @@ rtm.on('message', (message) => {
                rtm.sendMessage(response.data,message.channel).then((res)=>{
                }).catch((err)=>{
 
-               })
+               });
             })
             .catch(function (error) {
                  console.log(error);
