@@ -42,17 +42,18 @@ rtm.on('message', (message) => {
             console.log(message.text); 
             debugger;
 
-            axios.get(`https://evening-brook-60598.herokuapp.com/?q=${message.text}`).then(function (response) {
+            axios.get(`https:\/\/evening-brook-60598.herokuapp.com/?q=${message.text}`).then(function (response) {
                //console.log(JSON.stringify(message,undefined,2));     
                console.log(response.data);
-               rtm.sendMessage("Temperature",message.channel).then((res)=>{
-               }).catch((err)=>{
-
+               rtm.sendMessage("Temparature", message.channel).then((res)=>{
+                  //console.log(JSON.stringify(res,undefined,2));
+               }).catch((error)=>{
+                  console.log(error);
                });
             })
             .catch(function (error) {
                  console.log(error);
-            })
+            });
         
            
   }
