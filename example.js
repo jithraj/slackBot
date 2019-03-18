@@ -3,6 +3,7 @@ const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
+var mysql=require("mysql");
 
 
 const fs=require("fs");
@@ -16,6 +17,11 @@ var express=require('express');
 const app = express();
 
 // app.get('/', (req, res) => res.send('Hello World!'));
+
+var connection=mysql.createConnection({
+   user:'root',
+   password:'redhat'
+});
 
 
 const rtm = new RTMClient(token);
