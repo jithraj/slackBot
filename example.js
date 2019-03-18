@@ -69,7 +69,7 @@ rtm.on('message', (message) => {
       //console.log(JSON.stringify(respond,undefined,2));
       console.log(payload.actions[0].value);
 
-        if(payload.actions[0].selected_options[0].value=="weather" || payload.actions[0].value=="weather")
+        if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
         {
           console.log("Think about response");
           flag=1;
