@@ -45,7 +45,7 @@ rtm.on('message', (message) => {
             axios.get(`https:\/\/evening-brook-60598.herokuapp.com/?q=${message.text}`).then(function (response) {
                //console.log(JSON.stringify(message,undefined,2));     
                console.log(response.data);
-               rtm.sendMessage(`${response.data}`, message.channel).then((res)=>{
+               rtm.sendMessage(`${JSON.stringify(response.data,undefined,2)}`, message.channel).then((res)=>{
                   //console.log(JSON.stringify(res,undefined,2));
                }).catch((error)=>{
                   console.log(error);
