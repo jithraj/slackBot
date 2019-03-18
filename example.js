@@ -57,6 +57,66 @@ rtm.on('message', (message) => {
         
            
   }
+  if(message.text !== null && flag==2)
+  {
+	var pieces = message.text.split(' ');
+        var flag=[];
+
+        var i=0;
+        var reply='';
+                      
+                               
+        connection.query('select * from stopwords;',function (error, results, fields) {
+        	if (error) throw error;
+                                               
+                var j;
+                for(j=0;j<results.length;j++)
+                {
+                                               
+              	  for(i=0;i<pieces.length;i++)
+                  {
+                                                  
+                	  pieces[i]=pieces[i].toLowerCase();
+                          //console.log(`mysql ${results[j].words} pieces ${pieces[i]}`);
+                          if(pieces[i]===results[j].words){
+	                          //reply=reply+pieces[i]+"  ";
+                                  console.log(pieces[i]);
+                                  flag[i]=1;
+                           }   
+                           else
+                           {
+                                                    
+                           }
+                  }                       
+                }
+                                             
+                                              
+        });
+                            
+                           
+        setTimeout(function(){
+        	for(i=0;i<pieces.length;i++)
+                {
+                	if(flag[i]===0)
+                        {
+                        	reply=reply+pieces[i]+"  ";
+                        }
+                }
+                axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBLddZawK0xCVofyq0ha8sbLIShVyFs_9s&cx=007120909143705012278:7qmyzith6hk&q=${reply}`)
+                .then((response)=>{
+                          
+                	rtm.sendMessage(response.data.items[0].snippet,message.channel);
+                })
+                .catch((error)=>{
+                	console.log("Pls check your connectivity");
+                        console.log(error);
+                });
+                console.log(`Reply:  ${reply}`)
+                console.log(pieces); 
+                console.log(flag);}, 10000);
+                            
+
+  }
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
  });
@@ -79,7 +139,16 @@ rtm.on('message', (message) => {
             console.log(error);
          });
         }
-     
+        
+        if((payload.actions[0].selected_options[0].value=="google") || (payload.actions[0].value=="google"))
+        {
+          flag=2;
+          rtm.sendMessage("Please Enter the term that you want the information of from Google", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+         }).catch((error)=>{
+            console.log(error);
+         });
+        }
       
      
       // Before the work completes, return a message object that is the same as the original but with
