@@ -52,7 +52,7 @@ rtm.on('message', (message) => {
                //console.log(JSON.stringify(message,undefined,2));     
                console.log(response.data);
                rtm.sendMessage(`${JSON.stringify(response.data,undefined,2)}`, message.channel).then((res)=>{
-                  //console.log(JSON.stringify(res,undefined,2));
+                  console.log(JSON.stringify(res,undefined,2));
                }).catch((error)=>{
                   console.log(error);
                });
