@@ -44,8 +44,9 @@ rtm.on('message', (message) => {
 
   if (message.text !== null && flag==1)
   {
+	    console.log(`Message ${message.text}`); 
             message.text = message.text.replace(/<@UE8D19GJG>/i, "");
-            console.log(`Message ${message.text}`); 
+            
             debugger;
 
             axios.get(`https:\/\/evening-brook-60598.herokuapp.com/?q=${message.text}`).then(function (response) {
