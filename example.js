@@ -69,7 +69,7 @@ rtm.on('message', (message) => {
 	var pieces = message.text.split(' ');
         var flags=[];
 
-        var i=0;
+        var i=0,t;
         var reply='';
                       
                                
