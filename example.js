@@ -41,10 +41,10 @@ rtm.on('message', (message) => {
     return;
   }
 
-
+  console.log(`Message ${message.text}`); 
   if (message.text !== null && flag==1)
   {
-	    console.log(`Message ${message.text}`); 
+	    
             message.text = message.text.replace(/<@UE8D19GJG>/i, "");
             
             debugger;
