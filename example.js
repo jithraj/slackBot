@@ -132,7 +132,7 @@ rtm.on('message', (message) => {
             
             debugger;
 
-            tweet_message(`${message.text}`).then((res)=>{
+            tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 	    }).catch((err)=>{
 		console.log(err);
