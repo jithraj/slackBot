@@ -4,6 +4,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
 var mysql=require("mysql");
+var tweet=require("./tweet.js");
 
 
 const fs=require("fs");
@@ -124,6 +125,20 @@ rtm.on('message', (message) => {
                             
 
   }
+  if (message.text !== null && flag==3)
+  {
+	    
+            message.text = message.text.replace(/<@UE8D19GJG>/i, "");
+            
+            debugger;
+
+            tweet_message(`${message.text}`).then((res)=>{
+		console.log(res);
+	    }).catch((err)=>{
+		console.log(err);
+	    })
+           
+  }
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
  });
@@ -156,7 +171,16 @@ rtm.on('message', (message) => {
             console.log(error);
          });
         }
-      
+        
+        if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
+        {
+          flag=3;
+          rtm.sendMessage("Please Enter tweet you would like to tweet", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+         }).catch((error)=>{
+            console.log(error);
+         });
+        }
      
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.

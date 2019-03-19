@@ -113,20 +113,33 @@ var get_searched_tweets=(query)=>{
   
 };
 
-const request_data_tweet = {
-  url: `https://api.twitter.com/1.1/statuses/update.json?status=${encodeURIComponent("Amazing ")}`,
-  method: 'POST'
-};
 
-axios({
-  url: request_data_tweet.url,
-  method: request_data_tweet.method,
-  headers:oauth.toHeader(oauth.authorize(request_data_tweet,token))
-}).then((response)=>{
-   console.log(response);
-}).catch((error)=>{
-  console.log(error);
-})
+var tweet_message=(text)=>{
+    //to tweets message
+    
+   	 const request_data_tweet = {
+		url: `https://api.twitter.com/1.1/statuses/update.json?status=${encodeURIComponent(`${text}`)}`,
+		method: 'POST'
+    	};
+
+        return new Promise((sucess,reject)=>{
+		axios({
+  			url: request_data_tweet.url,
+			method: request_data_tweet.method,
+			headers:oauth.toHeader(oauth.authorize(request_data_tweet,token))
+		}).then((response)=>{
+   			sucess({
+				response:response
+			});
+		}).catch((error)=>{
+  			reject(error);
+		})
+    
+
+        });
+
+}
+
 
 // console.log(request_data_tweet);
 
@@ -150,3 +163,15 @@ axios({
 //   words: [ 'bad' ],
 //   positive: [],
 //   negative: [ 'bad' ] }
+
+//tweet_message("Hey how are you").then((res)=>{
+//	console.log(res);
+//}).catch((err)=>{
+//	console.log(err);
+//})
+
+module.exports={ 
+    tweet_message:tweet_message,
+    get_searched_tweets:get_searched_tweets,
+    get_friends_list:get_friends_list  
+};
