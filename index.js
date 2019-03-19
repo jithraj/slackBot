@@ -157,8 +157,8 @@ rtm.on('message',(message)=>{
    // return;
    //}
   
-   attach.msg.channel=message.channel;
-  web.chat.postMessage(attach.msg)
+   attach.msg1.channel=message.channel;
+  web.chat.postMessage(attach.msg1)
   .then((res)=>{
      console.log(res);
      throw {error:"just kidding"};
