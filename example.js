@@ -132,12 +132,24 @@ rtm.on('message', (message) => {
             
             debugger;
 
+            /*
             tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 	    }).catch((err)=>{
 		console.log(err);
 	    })
-           
+            */
+
+	    tweet.get_searched_tweets('Narendra Modi').then(function(result){
+	   	 console.log(JSON.stringify(result,undefined,2));
+                 rtm.sendMessage(`${JSON.stringify(result.ptweets,undefined,2)}`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                 }).catch((error)=>{
+                    console.log(error);
+                 });
+	    }).catch(function(error){
+	         console.log(error);
+	    });
   }
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
