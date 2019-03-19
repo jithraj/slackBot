@@ -41,7 +41,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${message.text}`); 
+  console.log(`Message ${message.text}  ${flag}`); 
   if (message.text !== null && flag==1)
   {
 	    
