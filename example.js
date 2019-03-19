@@ -140,9 +140,9 @@ rtm.on('message', (message) => {
 	    })
             */
 
-	    tweet.get_searched_tweets('Narendra Modi').then(function(result){
+	    tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
-                 rtm.sendMessage(`${JSON.stringify(result.ptweets,undefined,2)}`, message.channel).then((res)=>{
+                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                  }).catch((error)=>{
                     console.log(error);
