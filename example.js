@@ -5,7 +5,7 @@ const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
 var mysql=require("mysql");
 var tweet=require("./tweet.js");
-
+var attach=require("./attach.js");
 
 const fs=require("fs");
 
@@ -137,7 +137,8 @@ rtm.on('message', (message) => {
             message.text = message.text.replace(/<@UE8D19GJG>/i, "");
             
             debugger;
-
+		
+            
             
             tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
@@ -158,10 +159,34 @@ rtm.on('message', (message) => {
 	         console.log(error);
 	    });
             */
+             
+            attach.msg2.channel=message.channel;
+  	    web.chat.postMessage(attach.msg2)
+  	    .then((res)=>{
+		console.log(res);
+		throw {error:"just kidding"};
+	    })
+  	    .catch((e)=>{
+		console.log(e);
+  	    });
+  }
+  if(message.text!=null && flag==4)
+  {
+
+  }
+  if(message.text!=null && flag==5)
+  {
+
+  }
+  if(message.text!=null && flag==6)
+  {
+
   }
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
  });
+
+
 
 
     slackInteractions.action('aspire', (payload, respond) => {

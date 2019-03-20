@@ -74,7 +74,41 @@ var msg1={
     ]
 };
 
+var msg2={
+    "text": "Would you like to play a game?",
+    "attachments": [
+        {
+            "text": "Choose a game to play",
+            "fallback": "You are unable to choose a game",
+            "callback_id": "wopr_game",
+            "color": "#3AA3E3",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "Analyse_tweets",
+                    "text": "tweets analysis",
+                    "type": "button",
+                    "value": "Analyse_tweets"
+                },
+                {
+                    "name": "tweet",
+                    "text": "Tweet msg",
+                    "type": "button",
+                    "value": "tweet"
+                },
+                {
+                    "name":"Get_friends",
+                    "text": "get friends",
+                    "type": "button",
+                    "value": "get_friends"
+				}
+            ]
+        }
+    ]
+};
+
 module.exports={ 
     msg:msg,
-    msg1:msg1
+    msg1:msg1,
+    msg2:msg2
 };

@@ -152,8 +152,7 @@ rtm.on('authenticated', (rtmStartData) => {
 rtm.on('message',(message)=>{
    console.log(JSON.stringify(message,undefined,2));
   
-   if ( (message.subtype && message.subtype === 'bot_message') ||
-       (!message.subtype && message.user === rtm.activeUserId) ) {
+   if ( (message.subtype && message.subtype === 'bot_message') || (!message.subtype && message.user === rtm.activeUserId) ) {
        return;
    }
   
