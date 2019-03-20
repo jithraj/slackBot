@@ -229,7 +229,7 @@ rtm.on('message', (message) => {
 		console.log(e);
           });
         }
-        if(payload.actions[0].selected_options[0].value=="tweet")
+        if(payload.actions[0].value=="tweet")
         {
            flag=4;
            rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
