@@ -147,15 +147,15 @@ rtm.on('authenticated', (rtmStartData) => {
 // // });
 
 
-
+//killer
 
 rtm.on('message',(message)=>{
    console.log(JSON.stringify(message,undefined,2));
   
-   //if ( (message.subtype && message.subtype === 'bot_message') ||
-   //    (!message.subtype && message.user === rtm.activeUserId) ) {
-   // return;
-   //}
+   if ( (message.subtype && message.subtype === 'bot_message') ||
+       (!message.subtype && message.user === rtm.activeUserId) ) {
+       return;
+   }
   
    attach.msg1.channel=message.channel;
   web.chat.postMessage(attach.msg1)
