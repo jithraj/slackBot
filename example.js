@@ -132,14 +132,15 @@ rtm.on('message', (message) => {
             
             debugger;
 
-            /*
+            
             tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 	    }).catch((err)=>{
 		console.log(err);
 	    })
-            */
-
+            
+           
+            /*
 	    tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
                  rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.channel).then((res)=>{
@@ -150,6 +151,7 @@ rtm.on('message', (message) => {
 	    }).catch(function(error){
 	         console.log(error);
 	    });
+            */
   }
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
