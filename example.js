@@ -232,6 +232,7 @@ rtm.on('message', (message) => {
         if(payload.actions[0].value=="tweet")
         {
            flag=4;
+           console.log("SuCeSS");
            rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
             //console.log(JSON.stringify(res,undefined,2));
            }).catch((error)=>{
