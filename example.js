@@ -219,7 +219,7 @@ rtm.on('message', (message) => {
         if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
         {
           flag=3;
-          attach.msg2.channel=message.channel;
+          attach.msg2.channel=payload.channel.id;
   	  web.chat.postMessage(attach.msg2)
   	  .then((res)=>{
           	console.log(res);
