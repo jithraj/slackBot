@@ -68,7 +68,7 @@ rtm.on('message', (message) => {
   if(message.text !== null && flag==2)
   {
 	var pieces = message.text.split(' ');
-        var flags=[];
+        var temp=[];
 
         var i=0,t;
         var reply='';
@@ -89,7 +89,7 @@ rtm.on('message', (message) => {
                           if(pieces[i]===results[j].words){
 	                          //reply=reply+pieces[i]+"  ";
                                   console.log(pieces[i]);
-                                  flags[i]=1;
+                                  temp[i]=1;
                            }   
                            else
                            {
@@ -100,12 +100,18 @@ rtm.on('message', (message) => {
                                              
                                               
         });
-        */                    
+        */ 
+
+        for(i=0;i<pieces.length;i++)
+        {
+		temp[i]=0;        	
+
+        }                   
                            
         setTimeout(function(){
         	for(i=0;i<pieces.length;i++)
                 {
-                	if(flags[i]===0)
+                	if(temp[i]===0)
                         {
                         	reply=reply+pieces[i]+"  ";
                         }
@@ -121,7 +127,7 @@ rtm.on('message', (message) => {
                 });
                 console.log(`Reply:  ${reply}`)
                 console.log(pieces); 
-                console.log(flags);}, 10000);
+                console.log(temp);}, 10000);
                             
 
   }
