@@ -80,7 +80,7 @@ var msg2={
         {
             "text": "Choose a game to play",
             "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
+            "callback_id": "aspire",
             "color": "#3AA3E3",
             "attachment_type": "default",
             "actions": [
