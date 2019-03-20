@@ -159,20 +159,19 @@ rtm.on('message', (message) => {
 	         console.log(error);
 	    });
             */
+	     
+            
              
-            attach.msg2.channel=message.channel;
-  	    web.chat.postMessage(attach.msg2)
-  	    .then((res)=>{
-		console.log(res);
-		throw {error:"just kidding"};
-	    })
-  	    .catch((e)=>{
-		console.log(e);
-  	    });
   }
   if(message.text!=null && flag==4)
   {
+     message.text = message.text.replace(/<@UE8D19GJG>/i, "");
 
+     tweet.tweet_message(`${message.text}`).then((res)=>{
+		console.log(res);
+     }).catch((err)=>{
+		console.log(err);
+     })
   }
   if(message.text!=null && flag==5)
   {
@@ -220,12 +219,26 @@ rtm.on('message', (message) => {
         if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
         {
           flag=3;
-          rtm.sendMessage("Please Enter tweet you would like to tweet", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-         }).catch((error)=>{
-            console.log(error);
-         });
+          attach.msg2.channel=message.channel;
+  	  web.chat.postMessage(attach.msg2)
+  	  .then((res)=>{
+          	console.log(res);
+		throw {error:"just kidding"};
+	  })
+          .catch((e)=>{
+		console.log(e);
+          });
         }
+        if(payload.actions[0].selected_options[0].value=="tweet")
+        {
+           flag=4;
+           rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+           }).catch((error)=>{
+            console.log(error);
+           });  
+        }
+        if()
      
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
