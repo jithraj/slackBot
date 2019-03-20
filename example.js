@@ -141,7 +141,11 @@ rtm.on('message', (message) => {
             
             
             tweet.tweet_message(`${message.text}`).then((res)=>{
-		console.log(res);
+		rtm.sendMessage(`The message has been tweeted`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                 }).catch((error)=>{
+                    console.log(error);
+                 });
 	    }).catch((err)=>{
 		console.log(err);
 	    })
