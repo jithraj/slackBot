@@ -238,7 +238,6 @@ rtm.on('message', (message) => {
             console.log(error);
            });  
         }
-        if()
      
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
