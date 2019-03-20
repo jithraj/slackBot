@@ -73,7 +73,7 @@ rtm.on('message', (message) => {
         var i=0,t;
         var reply='';
                       
-                               
+        /*                       
         connection.query('select * from stopwords;',function (error, results, fields) {
         	if (error) throw error;
                                                
@@ -100,7 +100,7 @@ rtm.on('message', (message) => {
                                              
                                               
         });
-                            
+        */                    
                            
         setTimeout(function(){
         	for(i=0;i<pieces.length;i++)
