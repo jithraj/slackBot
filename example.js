@@ -194,6 +194,17 @@ rtm.on('message', (message) => {
       console.log(JSON.stringify(payload,undefined,2));
       //console.log(JSON.stringify(respond,undefined,2));
       console.log(`${payload.actions[0].value=="tweet"} ${flag}`);
+          
+        if(payload.actions[0].value=="tweet")
+        {
+           flag=4;
+           console.log("SuCeSS");
+           rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+           }).catch((error)=>{
+            console.log(error);
+           });  
+        }
 
         if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
         {
@@ -201,9 +212,9 @@ rtm.on('message', (message) => {
           flag=1;
           rtm.sendMessage("Please Enter the Place name that you want the information of", payload.channel.id).then((res)=>{
             //console.log(JSON.stringify(res,undefined,2));
-         }).catch((error)=>{
+          }).catch((error)=>{
             console.log(error);
-         });
+          });
         }
         
         if((payload.actions[0].selected_options[0].value=="google") || (payload.actions[0].value=="google"))
@@ -220,8 +231,7 @@ rtm.on('message', (message) => {
         {
           flag=3;
           attach.msg2.channel=payload.channel.id;
-  	  web.chat.postMessage(attach.msg2)
-  	  .then((res)=>{
+  	  web.chat.postMessage(attach.msg2).then((res)=>{
           	console.log(res);
 		throw {error:"just kidding"};
 	  })
@@ -229,16 +239,7 @@ rtm.on('message', (message) => {
 		console.log(e);
           });
         }
-        if(payload.actions[0].value=="tweet" || (payload.actions[0].value=="weather"))
-        {
-           flag=4;
-           console.log("SuCeSS");
-           rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-           }).catch((error)=>{
-            console.log(error);
-           });  
-        }
+        
      
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
