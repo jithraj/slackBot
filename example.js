@@ -44,6 +44,22 @@ rtm.on('message', (message) => {
 
   message.text = message.text.replace(/<@UE8D19GJG>/i, "");
   console.log(`Message ${message.text}  ${flag}`); 
+
+  if(message.text!=null && flag==0)
+  {
+	if(message.text.includes("vizerto"))
+	{
+		attach.msg1.channel=message.channel;
+		web.chat.postMessage(attach.msg1)
+  		.then((res)=>{
+     			console.log(res);
+     			throw {error:"just kidding"};
+  		})
+  		.catch((e)=>{
+	      		console.log(e);
+  		});
+	}
+  }
   if (message.text !== null && flag==1)
   {
 	    
