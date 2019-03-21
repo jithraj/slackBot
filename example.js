@@ -42,11 +42,11 @@ rtm.on('message', (message) => {
     return;
   }
 
+  message.text = message.text.replace(/<@UE8D19GJG>/i, "");
   console.log(`Message ${message.text}  ${flag}`); 
   if (message.text !== null && flag==1)
   {
 	    
-            message.text = message.text.replace(/<@UE8D19GJG>/i, "");
             
             debugger;
 
@@ -67,8 +67,7 @@ rtm.on('message', (message) => {
   }
   if(message.text !== null && flag==2)
   {
- 	message.text = message.text.replace(/<@UE8D19GJG>/i, "");
-
+ 	
         
 	var pieces = message.text.split(' ');
         var temp=[];
@@ -137,7 +136,6 @@ rtm.on('message', (message) => {
   if (message.text !== null && flag==3)
   {
 	    
-            message.text = message.text.replace(/<@UE8D19GJG>/i, "");
             
             debugger;
 		
@@ -172,8 +170,7 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==4)
   {
-     message.text = message.text.replace(/<@UE8D19GJG>/i, "");
-
+     
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
@@ -210,6 +207,12 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==6)
   {
+	
+	get_friends_list("923575232216125440").then((response)=>{
+	   console.log(response);
+	}).catch((error)=>{
+	   console.log(error);
+	});
 
   }
   // Log the message
@@ -241,6 +244,16 @@ rtm.on('message', (message) => {
 	{
           flag=5;
           rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+          }).catch((error)=>{
+            console.log(error);
+          });
+	}
+
+	if(payload.actions[0].value=="Analyse_tweets")
+	{
+          flag=6;
+          rtm.sendMessage("Type your profile code here", payload.channel.id).then((res)=>{
             //console.log(JSON.stringify(res,undefined,2));
           }).catch((error)=>{
             console.log(error);
