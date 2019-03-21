@@ -112,6 +112,8 @@ var get_searched_tweets=(query)=>{
         success({
             ptweets:ptweets,
             ntweets:ntweets,
+            n_count1:n_count1,
+	    p_count1:p_count1
         });
 
     }).catch((error)=>{
@@ -183,6 +185,4 @@ module.exports={
     tweet_message:tweet_message,
     get_searched_tweets:get_searched_tweets,
     get_friends_list:get_friends_list,
-    n_count1:n_count1,
-    p_count1:p_count1
 };
