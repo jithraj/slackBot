@@ -235,7 +235,7 @@ rtm.on('message', (message) => {
            });  
         }
  
-        if(payload.actions[0].value="Analyse_tweets")
+        if(payload.actions[0].value=="Analyse_tweets")
 	{
           flag=5;
           rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{

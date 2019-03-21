@@ -101,7 +101,7 @@ var msg2={
                     "text": "get friends",
                     "type": "button",
                     "value": "get_friends"
-				}
+		}
             ]
         }
     ]
