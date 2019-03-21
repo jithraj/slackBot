@@ -67,6 +67,9 @@ rtm.on('message', (message) => {
   }
   if(message.text !== null && flag==2)
   {
+ 	message.text = message.text.replace(/<@UE8D19GJG>/i, "");
+
+        
 	var pieces = message.text.split(' ');
         var temp=[];
 
@@ -173,6 +176,11 @@ rtm.on('message', (message) => {
 
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
+		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                }).catch((error)=>{
+                    console.log(error);
+                });
      }).catch((err)=>{
 		console.log(err);
      })
@@ -226,6 +234,16 @@ rtm.on('message', (message) => {
             console.log(error);
            });  
         }
+ 
+        if(payload.actions[0].value="Analyse_tweets")
+	{
+          flag=5;
+          rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
+            //console.log(JSON.stringify(res,undefined,2));
+          }).catch((error)=>{
+            console.log(error);
+          });
+	}
 
         if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
         {
