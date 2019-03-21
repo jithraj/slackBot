@@ -208,7 +208,7 @@ rtm.on('message', (message) => {
   if(message.text!=null && flag==6)
   {
 	
-	get_friends_list(`${message.text}`).then((response)=>{
+	tweet.get_friends_list(`${message.text}`).then((response)=>{
 	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
            }).catch((error)=>{
