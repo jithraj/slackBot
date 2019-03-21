@@ -250,15 +250,17 @@ rtm.on('message', (message) => {
           });
 	}
 
-	if(payload.actions[0].value=="Analyse_tweets")
+	if(payload.actions[0].value=="get_friends")
 	{
           flag=6;
-          rtm.sendMessage("Type your profile code here", payload.channel.id).then((res)=>{
+          rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
             //console.log(JSON.stringify(res,undefined,2));
           }).catch((error)=>{
             console.log(error);
           });
 	}
+
+
 
         if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
         {
