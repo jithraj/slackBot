@@ -78,6 +78,8 @@ rtm.on('message', (message) => {
             .catch(function (error) {
                  console.log(error);
             });
+	
+	    flag=0;
         
            
   }
@@ -146,6 +148,8 @@ rtm.on('message', (message) => {
                 console.log(`Reply:  ${reply}`)
                 console.log(pieces); 
                 console.log(temp);}, 10000);
+
+		flag=0;
                             
 
   }
@@ -180,6 +184,8 @@ rtm.on('message', (message) => {
 	         console.log(error);
 	    });
             */
+
+	    flag=0;
 	     
             
              
@@ -197,6 +203,8 @@ rtm.on('message', (message) => {
      }).catch((err)=>{
 		console.log(err);
      })
+
+     flag=0;
   }
   if(message.text!=null && flag==5)
   {
@@ -220,6 +228,8 @@ rtm.on('message', (message) => {
 	 }).catch(function(error){
 	         console.log(error);
 	 });
+
+	 flag=0;
   }
   if(message.text!=null && flag==6)
   {
@@ -235,6 +245,7 @@ rtm.on('message', (message) => {
 	});
 
   }
+  flag=0;
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
  });
