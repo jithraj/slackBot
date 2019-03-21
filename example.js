@@ -143,6 +143,7 @@ rtm.on('message', (message) => {
                 })
                 .catch((error)=>{
                 	console.log("Pls check your connectivity");
+			rtm.sendMessage("Please type the message nicely there is some error.....",message.channel);
                         console.log(error);
                 });
                 console.log(`Reply:  ${reply}`)
