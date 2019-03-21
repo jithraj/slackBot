@@ -179,7 +179,24 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==5)
   {
+	
+	tweet.get_searched_tweets(`${message.text}`).then(function(result){
+	   	 console.log(JSON.stringify(result,undefined,2));
+                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                 }).catch((error)=>{
+                    console.log(error);
+                 });
+                 var final_msg=`negative tweets:${result.n_count} positive tweet:${result.p_count}`;
+                 rtm.sendMessage(`${final_msg}`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                 }).catch((error)=>{
+                    console.log(error);
+                 });
 
+	 }).catch(function(error){
+	         console.log(error);
+	 });
   }
   if(message.text!=null && flag==6)
   {
