@@ -195,7 +195,7 @@ rtm.on('message', (message) => {
                  }).catch((error)=>{
                     console.log(error);
                  });
-                 var final_msg=`negative tweets:${result.n_count} positive tweet:${result.p_count}`;
+                 var final_msg=`negative tweets:${tweet.n_count1}% positive tweet:${tweet.p_count1}%`;
                  rtm.sendMessage(`${final_msg}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                  }).catch((error)=>{
