@@ -32,8 +32,6 @@ const token = {
 //   headers: oauth.toHeader(oauth.authorize(request_data, token))
 // },undefined,2));
 
-var p_count=0,n_count=0;
-
 var get_friends_list=(user_id)=>{
     //get Friends list from twitter
  
@@ -85,6 +83,8 @@ var get_searched_tweets=(query)=>{
         var tweets=[];
         var ntweets=[];
         var ptweets=[];
+	var p_count=0,n_count=0;
+
         for(var i=0;i<JSON.stringify(response.data,undefined,2).length;i++)
         {
           
@@ -104,12 +104,14 @@ var get_searched_tweets=(query)=>{
             
         }
  
-        n_count=(n_count/(n_count+p_count))*100;
-        p_count=(p_count/(p_count+n_count))*100;        
+        var n_count1=(n_count/(n_count+p_count))*100;
+        var p_count1=(p_count/(p_count+n_count))*100;        
 
         success({
             ptweets:ptweets,
-            ntweets:ntweets
+            ntweets:ntweets,
+            n_count1:n_count1,
+            p_count1:p_count1
         });
 
     }).catch((error)=>{
@@ -180,7 +182,5 @@ var tweet_message=(text)=>{
 module.exports={ 
     tweet_message:tweet_message,
     get_searched_tweets:get_searched_tweets,
-    get_friends_list:get_friends_list,
-    n_count:n_count,
-    p_count:p_count  
+    get_friends_list:get_friends_list
 };
