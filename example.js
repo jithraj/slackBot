@@ -208,7 +208,7 @@ rtm.on('message', (message) => {
   if(message.text!=null && flag==6)
   {
 	
-	get_friends_list("923575232216125440").then((response)=>{
+	get_friends_list(`${message.text}`).then((response)=>{
 	   console.log(response);
 	}).catch((error)=>{
 	   console.log(error);
