@@ -232,75 +232,79 @@ rtm.on('message', (message) => {
       console.log(JSON.stringify(payload,undefined,2));
       //console.log(JSON.stringify(respond,undefined,2));
       console.log(`${payload.actions[0].value=="tweet"} ${flag}`);
-          
-        if(payload.actions[0].value=="tweet")
-        {
-           flag=4;
-           console.log("SuCeSS");
-           rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-           }).catch((error)=>{
-            console.log(error);
-           });  
-        }
+        
+        if(payload.actions[0].type=="button")
+        {  
+        	if(payload.actions[0].value=="tweet")
+        	{
+           		flag=4;
+           		console.log("SuCeSS");
+           		rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
+            		//console.log(JSON.stringify(res,undefined,2));
+           		}).catch((error)=>{
+            		console.log(error);
+           		});  
+        	}
  
-        if(payload.actions[0].value=="Analyse_tweets")
-	{
-          flag=5;
-          rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-          }).catch((error)=>{
-            console.log(error);
-          });
+        	if(payload.actions[0].value=="Analyse_tweets")
+		{
+          		flag=5;
+          		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
+            		//console.log(JSON.stringify(res,undefined,2));
+          		}).catch((error)=>{
+            		console.log(error);
+          		});
+		}
+
+		if(payload.actions[0].value=="get_friends")
+		{
+          		flag=6;
+          		rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
+           		 //console.log(JSON.stringify(res,undefined,2));
+          		}).catch((error)=>{
+            		console.log(error);
+          		});
+		}
 	}
 
-	if(payload.actions[0].value=="get_friends")
-	{
-          flag=6;
-          rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-          }).catch((error)=>{
-            console.log(error);
-          });
+        if(payload.actions[0].type=="select")
+        {
+
+	        if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
+	        {
+		          console.log("Think about response");
+		          flag=1;
+		          rtm.sendMessage("Please Enter the Place name that you want the information of", payload.channel.id).then((res)=>{
+		            //console.log(JSON.stringify(res,undefined,2));
+          		  }).catch((error)=>{
+           		 	console.log(error);
+          		  });
+        	}
+        
+        	if((payload.actions[0].selected_options[0].value=="google") || (payload.actions[0].value=="google"))
+        	{
+          		flag=2;
+          		rtm.sendMessage("Please Enter the term that you want the information of from Google", payload.channel.id).then((res)=>{
+            		//console.log(JSON.stringify(res,undefined,2));
+        	 	}).catch((error)=>{
+            		console.log(error);
+         		});
+        	}
+        
+       	 	if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
+        	{
+          		flag=3;
+          		attach.msg2.channel=payload.channel.id;
+  	  		web.chat.postMessage(attach.msg2).then((res)=>{
+          			console.log(res);
+				throw {error:"just kidding"};
+	  		})
+          		.catch((e)=>{
+				console.log(e);
+          		});
+        	}
+        
 	}
-
-
-
-        if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
-        {
-          console.log("Think about response");
-          flag=1;
-          rtm.sendMessage("Please Enter the Place name that you want the information of", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-          }).catch((error)=>{
-            console.log(error);
-          });
-        }
-        
-        if((payload.actions[0].selected_options[0].value=="google") || (payload.actions[0].value=="google"))
-        {
-          flag=2;
-          rtm.sendMessage("Please Enter the term that you want the information of from Google", payload.channel.id).then((res)=>{
-            //console.log(JSON.stringify(res,undefined,2));
-         }).catch((error)=>{
-            console.log(error);
-         });
-        }
-        
-        if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
-        {
-          flag=3;
-          attach.msg2.channel=payload.channel.id;
-  	  web.chat.postMessage(attach.msg2).then((res)=>{
-          	console.log(res);
-		throw {error:"just kidding"};
-	  })
-          .catch((e)=>{
-		console.log(e);
-          });
-        }
-        
-     
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
       
