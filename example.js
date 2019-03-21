@@ -209,7 +209,11 @@ rtm.on('message', (message) => {
   {
 	
 	get_friends_list(`${message.text}`).then((response)=>{
-	   console.log(response);
+	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+           }).catch((error)=>{
+                    console.log(error);
+           });
 	}).catch((error)=>{
 	   console.log(error);
 	});
