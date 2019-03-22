@@ -75,7 +75,7 @@ var msg1={
 };
 
 var msg2={
-    "text": "Would you like to play a game?",
+    "text": "Search in : ",
     "attachments": [
         {
             "text": "Choose a game to play",

@@ -193,7 +193,7 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==4)
   {
-     
+    
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
@@ -204,7 +204,7 @@ rtm.on('message', (message) => {
      }).catch((err)=>{
 		console.log(err);
      })
-
+    
      flag=0;
   }
   if(message.text!=null && flag==5)
