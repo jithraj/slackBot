@@ -272,6 +272,7 @@ rtm.on('message', (message) => {
            		}).catch((error)=>{
             		console.log(error);
            		});  
+                }
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
           		flag=5;
@@ -330,7 +331,6 @@ rtm.on('message', (message) => {
           		});
         	}
         
-        	}
  
 	}
       // Before the work completes, return a message object that is the same as the original but with
