@@ -78,7 +78,7 @@ var msg2={
     "text": "Search in : ",
     "attachments": [
         {
-            "text": "Choose a game to play",
+            "text": "Choose a options to try",
             "fallback": "You are unable to choose a game",
             "callback_id": "aspire",
             "color": "#3AA3E3",

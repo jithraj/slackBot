@@ -193,7 +193,7 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==4)
   {
-    
+     
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
@@ -204,7 +204,7 @@ rtm.on('message', (message) => {
      }).catch((err)=>{
 		console.log(err);
      })
-    
+
      flag=0;
   }
   if(message.text!=null && flag==5)
@@ -272,8 +272,6 @@ rtm.on('message', (message) => {
            		}).catch((error)=>{
             		console.log(error);
            		});  
-        	}
- 
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
           		flag=5;
@@ -298,7 +296,7 @@ rtm.on('message', (message) => {
         if(payload.actions[0].type=="select")
         {
 
-	        if((payload.actions[0].selected_options[0].value=="weather") || (payload.actions[0].value=="weather"))
+	        if(payload.actions[0].selected_options[0].value=="weather")
 	        {
 		          console.log("Think about response");
 		          flag=1;
@@ -309,7 +307,7 @@ rtm.on('message', (message) => {
           		  });
         	}
         
-        	if((payload.actions[0].selected_options[0].value=="google") || (payload.actions[0].value=="google"))
+        	if(payload.actions[0].selected_options[0].value=="google")
         	{
           		flag=2;
           		rtm.sendMessage("Please Enter the term that you want the information of from Google", payload.channel.id).then((res)=>{
@@ -319,7 +317,7 @@ rtm.on('message', (message) => {
          		});
         	}
         
-       	 	if((payload.actions[0].selected_options[0].value=="twitter") || (payload.actions[0].value=="weather"))
+       	 	if(payload.actions[0].selected_options[0].value=="twitter")
         	{
           		flag=3;
           		attach.msg2.channel=payload.channel.id;
@@ -332,6 +330,8 @@ rtm.on('message', (message) => {
           		});
         	}
         
+        	}
+ 
 	}
       // Before the work completes, return a message object that is the same as the original but with
       // the interactive elements removed.
