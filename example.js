@@ -26,11 +26,12 @@ var connection=mysql.createConnection({
    port:'3397'
 });
 
+/*
 connection.query('use slack;',function (error, results, fields) {
   if (error) throw error;
   // connected!
 });
-
+*/
 
 const rtm = new RTMClient(token);
 const web=new WebClient(token);
@@ -100,7 +101,8 @@ rtm.on('message', (message) => {
         var i=0,t;
         var reply='';
                       
-                          
+          
+        /*                
         connection.query('select * from stopwords;',function (error, results, fields) {
         	if (error) throw error;
                                                
@@ -127,7 +129,8 @@ rtm.on('message', (message) => {
                                              
                                               
         });
-         
+	*/         
+
         /*
         for(i=0;i<pieces.length;i++)
         {
