@@ -20,8 +20,14 @@ const app = express();
 // app.get('/', (req, res) => res.send('Hello World!'));
 
 var connection=mysql.createConnection({
-   user:'root',
+   host:'35.222.4.188',
+   user:'aspire',
    password:'redhat'
+});
+
+connection.query('use slack;',function (error, results, fields) {
+  if (error) throw error;
+  // connected!
 });
 
 
@@ -93,7 +99,7 @@ rtm.on('message', (message) => {
         var i=0,t;
         var reply='';
                       
-        /*                       
+                          
         connection.query('select * from stopwords;',function (error, results, fields) {
         	if (error) throw error;
                                                
@@ -120,14 +126,15 @@ rtm.on('message', (message) => {
                                              
                                               
         });
-        */ 
-
+         
+        /*
         for(i=0;i<pieces.length;i++)
         {
 		temp[i]=0;        	
 
         }                   
-                           
+        */
+                   
         setTimeout(function(){
         	for(i=0;i<pieces.length;i++)
                 {
