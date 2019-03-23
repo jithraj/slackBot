@@ -330,7 +330,6 @@ rtm.on('message', (message) => {
           		});
         	}
         
-        	}
  
 	}
       // Before the work completes, return a message object that is the same as the original but with
