@@ -293,7 +293,7 @@ rtm.on('message', (message) => {
 		}
 	}
 
-        if(payload.actions[0].type==="select")
+        if(payload.actions[0].type=="select")
         {
 		console.log("type:select");
 	        if(payload.actions[0].selected_options[0].value=="weather")
