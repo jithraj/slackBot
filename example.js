@@ -131,13 +131,13 @@ rtm.on('message', (message) => {
         });
 	*/         
 
-        /*
+      
         for(i=0;i<pieces.length;i++)
         {
 		temp[i]=0;        	
 
         }                   
-        */
+        
                    
         setTimeout(function(){
         	for(i=0;i<pieces.length;i++)
