@@ -21,8 +21,9 @@ const app = express();
 
 var connection=mysql.createConnection({
    host:'35.222.4.188',
-   user:'be-project-235320:us-central1:aspire',
-   password:'redhat'
+   user:'aspire',
+   password:'redhat',
+   port:'3397'
 });
 
 connection.query('use slack;',function (error, results, fields) {
