@@ -149,6 +149,21 @@ rtm.on('message', (message) => {
                 }
                 axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBLddZawK0xCVofyq0ha8sbLIShVyFs_9s&cx=007120909143705012278:7qmyzith6hk&q=${reply}`)
                 .then((response)=>{
+ 			
+			/*
+			var kill;
+			for(i=0;i<items.length;i++)
+			{
+				kill=0; 				
+				for(j=0;j<pieces.length;j++)
+				{
+					if(response.data.items[i].snippet.includes!=pieces[j])
+						kill=1;
+				}
+				if(kill==0)
+					rtm.sendMessage(response.data.items[0].snippet,message.channel);	
+			}
+			*/
                           
                 	rtm.sendMessage(response.data.items[0].snippet,message.channel);
                 })
