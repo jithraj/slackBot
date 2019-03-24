@@ -255,9 +255,8 @@ rtm.on('message', (message) => {
 	}).catch((error)=>{
 	   console.log(error);
 	});
-
+        flag=0;
   }
-  flag=0;
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
  });
