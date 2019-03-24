@@ -40,11 +40,11 @@ var msg={
 };
 
 var msg1={
-    "text": "Would you like to play a game?",
+    "text": "In which Platform would you like to search",
     "response_type": "in_channel",
     "attachments": [
         {
-            "text": "Choose a game to play",
+            "text": "Choose one of these platform",
             "fallback": "If you could read this message, you'd be choosing something fun to do right now.",
             "color": "#3AA3E3",
             "attachment_type": "default",
@@ -78,7 +78,7 @@ var msg2={
     "text": "Search in : ",
     "attachments": [
         {
-            "text": "Choose a game to play",
+            "text": "Choose one of these options",
             "fallback": "You are unable to choose a game",
             "callback_id": "aspire",
             "color": "#3AA3E3",
