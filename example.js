@@ -50,11 +50,12 @@ rtm.on('message', (message) => {
     return;
   }
 
-  message.text = message.text.replace(/<@UE8D19GJG>/i, "");
   console.log(`Message ${message.text}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
+	message.text = message.text.replace(/<@UE8D19GJG>/i, "");
+
 	if(message.text.includes("vizerto"))
 	{
 		attach.msg1.channel=message.channel;
