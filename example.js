@@ -178,7 +178,7 @@ rtm.on('message', (message) => {
                 });
                 console.log(`Reply:  ${reply}`)
                 console.log(pieces); 
-                console.log(temp);}, 10000);
+                console.log(newString);}, 10000);
 
 		flag=0;
                             
