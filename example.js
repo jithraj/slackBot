@@ -102,7 +102,7 @@ rtm.on('message', (message) => {
         var temp=[];
 
 	var pieces = message.text.split(' ')
-	var newString = sw.removeStopwords(pieces);
+	var newString = stopword.removeStopwords(pieces);
 
         var i=0,t;
         var reply='';
