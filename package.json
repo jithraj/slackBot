@@ -19,6 +19,7 @@
     "oauth-1.0a": "^2.2.5",
     "request": "^2.88.0",
     "sentiment": "^5.0.1",
+    "stopword": "^0.2.1",
     "string": "^3.3.3"
   },
   "devDependencies": {},

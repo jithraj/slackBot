@@ -3,9 +3,11 @@ const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
+const stopword=require('stopword');
 var mysql=require("mysql");
 var tweet=require("./tweet.js");
 var attach=require("./attach.js");
+
 
 const fs=require("fs");
 
@@ -99,6 +101,9 @@ rtm.on('message', (message) => {
 	var pieces = message.text.split(' ');
         var temp=[];
 
+	var pieces = message.text.split(' ')
+	var newString = sw.removeStopwords(pieces);
+
         var i=0,t;
         var reply='';
                       
@@ -130,7 +135,7 @@ rtm.on('message', (message) => {
                                              
                                               
         });
-	*/         
+	        
 
       
         for(i=0;i<pieces.length;i++)
@@ -138,16 +143,14 @@ rtm.on('message', (message) => {
 		temp[i]=0;        	
 
         }                   
-        
+        */
                    
         setTimeout(function(){
-        	for(i=0;i<pieces.length;i++)
-                {
-                	if(temp[i]===0)
-                        {
-                        	reply=reply+pieces[i]+"  ";
-                        }
-                }
+        	for(i=0;i<newString.length;i++)
+		{
+			reply=reply+newString[i]+' ';
+		}
+                console.log(`Reply ${reply}`);
                 axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBLddZawK0xCVofyq0ha8sbLIShVyFs_9s&cx=007120909143705012278:7qmyzith6hk&q=${reply}`)
                 .then((response)=>{
  			
