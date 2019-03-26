@@ -4,6 +4,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
 const stopword=require('stopword');
+var striptags = require('striptags');
 var mysql=require("mysql");
 var tweet=require("./tweet.js");
 var attach=require("./attach.js");
@@ -56,7 +57,7 @@ rtm.on('message', (message) => {
 
   if(message.text!=null && flag==0)
   {
-	message.text = message.text.replace(/<@UE8D19GJG>/i, "");
+	message.text = striptags(message.text);
 
 	if(message.text.includes("vizerto"))
 	{
@@ -73,7 +74,7 @@ rtm.on('message', (message) => {
   }
   if (message.text !== null && flag==1)
   {
-	    
+	    message.text = striptags(message.text);
             
             debugger;
 
@@ -96,7 +97,7 @@ rtm.on('message', (message) => {
   }
   if(message.text !== null && flag==2)
   {
- 	
+ 	message.text = striptags(message.text);
         
 	var pieces = message.text.split(' ');
         var temp=[];
@@ -190,7 +191,7 @@ rtm.on('message', (message) => {
             
             debugger;
 		
-            
+            message.text = striptags(message.text);
             
             tweet.tweet_message(`${message.text}`).then((res)=>{
 		rtm.sendMessage(`The message has been tweeted`, message.channel).then((res)=>{
@@ -223,7 +224,8 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==4)
   {
-     
+     message.text = striptags(message.text);     
+
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
@@ -239,6 +241,8 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==5)
   {
+
+        message.text = striptags(message.text);
 	
 	tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
@@ -264,6 +268,7 @@ rtm.on('message', (message) => {
   }
   if(message.text!=null && flag==6)
   {
+         message.text = striptags(message.text);
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
 	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.channel).then((res)=>{
