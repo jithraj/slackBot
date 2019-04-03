@@ -4,6 +4,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
 const express=require('express');
+var striptags = require('striptags');
 
 var sentiment=require('sentiment');
 var app=new express();
@@ -23,7 +24,8 @@ var p_count=0,n_count=0,neutral=0;
 				if(response.data.messages[i].client_msg_id)
 				{
 					//response.data.messages[i].text = response.data.messages[i].text.replace(/<@UE8D19GJG>/i, "");
-					response.data.messages[i].text = response.data.messages[i].text.replace(/<@UE8D19GJG>/i, "");
+					//response.data.messages[i].text = response.data.messages[i].text.replace(/<@UE8D19GJG>/i, "");
+					response.data.messages[i].text = striptags(response.data.messages[i].text);
 					console.log(`${response.data.messages[i].text} ${sentiment.analyze(response.data.messages[i].text).score}`);
 					if(sentiment.analyze(response.data.messages[i].text).score==0)
 						neutral=neutral+1;

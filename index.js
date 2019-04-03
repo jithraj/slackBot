@@ -5,6 +5,7 @@ var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
 var mysql=require("mysql");
 var axios=require("axios");
 var attach=require("./attach.js");
+var striptags = require('striptags');
 
 const rtm = new RTMClient(token);
 const web=new WebClient(token);
