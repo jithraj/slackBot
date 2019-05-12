@@ -71,6 +71,18 @@ rtm.on('message', (message) => {
 	      		console.log(e);
   		});
 	}
+        else
+	{
+		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${reply}`)
+                .then((response)=>{
+ 			console.log(JSON.stringify(response,undefined,2));
+                })
+                .catch((error)=>{
+                	console.log("Pls check your connectivity in ml model");
+			rtm.sendMessage("Please type the message nicely there is some error.....",message.channel);
+                        console.log(error);
+                });
+	}
   }
   if (message.text !== null && flag==1)
   {
