@@ -75,7 +75,7 @@ rtm.on('message', (message) => {
 	{
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${reply}`)
                 .then((response)=>{
- 			console.log(JSON.stringify(response,undefined,2));
+ 			console.log(response.data);
                 })
                 .catch((error)=>{
                 	console.log("Pls check your connectivity in ml model");
