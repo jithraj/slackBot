@@ -76,6 +76,24 @@ rtm.on('message', (message) => {
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
                 .then((response)=>{
  			console.log(response.data);
+                        var accuracy=response.data.score*100;
+			if(accuracy>80)
+			{
+				rtm.sendMessage(`${JSON.stringify(response.data,undefined,2)}`, message.channel).then((res)=>{
+                  			console.log(JSON.stringify(res,undefined,2));
+               			}).catch((error)=>{
+                  		console.log(error);
+               			});
+				
+				axios.get(`https:\/\/evening-brook-60598.herokuapp.com/?t=${response.data.intent}&a=${message.text}`).then	(function (response) {
+               				console.log(`training sucessful`);
+            			})
+            			.catch(function (error) {
+                 			console.log(error);
+            			});
+
+			}
+			
                 })
                 .catch((error)=>{
                 	console.log("Pls check your connectivity in ml model");
