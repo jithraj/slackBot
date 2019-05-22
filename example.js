@@ -73,7 +73,7 @@ rtm.on('message', (message) => {
 	}
         else
 	{
-		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${reply}`)
+		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
                 .then((response)=>{
  			console.log(response.data);
                 })
@@ -234,7 +234,7 @@ rtm.on('message', (message) => {
             
              
   }
-  if(message.text!=null && flag==4)
+  if(message.text!=null && flag==5)
   {
      message.text = striptags(message.text);     
 
@@ -251,7 +251,7 @@ rtm.on('message', (message) => {
 
      flag=0;
   }
-  if(message.text!=null && flag==5)
+  if(message.text!=null && flag==6)
   {
 
         message.text = striptags(message.text);
@@ -278,7 +278,7 @@ rtm.on('message', (message) => {
 
 	 flag=0;
   }
-  if(message.text!=null && flag==6)
+  if(message.text!=null && flag==7)
   {
          message.text = striptags(message.text);
 	
@@ -311,7 +311,7 @@ rtm.on('message', (message) => {
         {  
         	if(payload.actions[0].value=="tweet")
         	{
-           		flag=4;
+           		flag=5;
            		console.log("SuCeSS");
            		rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
@@ -321,7 +321,7 @@ rtm.on('message', (message) => {
                 }
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
-          		flag=5;
+          		flag=6;
           		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
@@ -331,7 +331,7 @@ rtm.on('message', (message) => {
 
 		if(payload.actions[0].value=="get_friends")
 		{
-          		flag=6;
+          		flag=7;
           		rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
            		 //console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
@@ -376,7 +376,15 @@ rtm.on('message', (message) => {
 				console.log(e);
           		});
         	}
-        
+                if(payload.actions[0].selected_options[0].value=="vizerto")
+        	{
+          		flag=4;
+			rtm.sendMessage("Please Enter your question to Google", payload.channel.id).then((res)=>{
+            		//console.log(JSON.stringify(res,undefined,2));
+        	 	}).catch((error)=>{
+            		console.log(error);
+         		});
+        	}
  
 	}
       // Before the work completes, return a message object that is the same as the original but with

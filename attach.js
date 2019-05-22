@@ -66,7 +66,12 @@ var msg1={
                         {
                             "text": "Our App",
                             "value": "weather"
-                        }
+                       },
+		       {
+			    "text": "Vizerto",
+                            "value": "vizerto"
+		       }
+			
                     ]
                 }
             ]
