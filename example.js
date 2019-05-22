@@ -79,13 +79,13 @@ rtm.on('message', (message) => {
                         var accuracy=response.data.score*100;
 			if(accuracy>80)
 			{
-				rtm.sendMessage(`${JSON.stringify(response.data,undefined,2)}`, message.channel).then((res)=>{
-                  			console.log(JSON.stringify(res,undefined,2));
+				rtm.sendMessage(`${response.data.answer}`, message.channel).then((res)=>{
+                  			console.log(`message sent`)
                			}).catch((error)=>{
                   		console.log(error);
                			});
 				
-				axios.get(`https:\/\/evening-brook-60598.herokuapp.com/?t=${response.data.intent}&a=${message.text}`).then	(function (response) {
+				axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?t=${response.data.intent}&a=${message.text}`).then	(function (response) {
                				console.log(`training sucessful`);
             			})
             			.catch(function (error) {
