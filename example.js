@@ -77,7 +77,7 @@ rtm.on('message', (message) => {
                 .then((response)=>{
  			console.log(response.data);
                         var accuracy=response.data.score*100;
-			if(accuracy>80)
+			if(accuracy>70)
 			{
 				rtm.sendMessage(`${response.data.answer}`, message.channel).then((res)=>{
                   			console.log(`message sent`)
@@ -85,12 +85,24 @@ rtm.on('message', (message) => {
                   		console.log(error);
                			});
 				
-				axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?t=${response.data.intent}&a=${message.text}`).then	(function (response) {
+				axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?t=${response.data.intent}&q=${message.text}`).then	(function (response) {
                				console.log(`training sucessful`);
             			})
             			.catch(function (error) {
                  			console.log(error);
             			});
+
+			
+				if(accuracy>90)
+				{
+					axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?t=${response.data.intent}&a=${message.text}`).then	(function (response) {
+               					console.log(`training sucessful`);
+            				})
+            				.catch(function (error) {
+                 				console.log(error);
+            				});
+
+				}
 
 			}
 			
