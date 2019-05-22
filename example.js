@@ -77,7 +77,7 @@ rtm.on('message', (message) => {
                 .then((response)=>{
  			console.log(response.data);
                         var accuracy=response.data.score*100;
-			if(accuracy>70)
+			if(accuracy>70 && response.data.intent!='None')
 			{
 				rtm.sendMessage(`${response.data.answer}`, message.channel).then((res)=>{
                   			console.log(`message sent`)
