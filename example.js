@@ -238,6 +238,12 @@ rtm.on('message', (message) => {
   {
      message.text = striptags(message.text);     
 
+     flag=0;
+  }
+  if(message.text!=null && flag==5)
+  {
+     message.text = striptags(message.text);     
+
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
@@ -379,7 +385,7 @@ rtm.on('message', (message) => {
                 if(payload.actions[0].selected_options[0].value=="vizerto")
         	{
           		flag=4;
-			rtm.sendMessage("Please Enter your question to Google", payload.channel.id).then((res)=>{
+			rtm.sendMessage("Please Enter your question to vizerto", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
         	 	}).catch((error)=>{
             		console.log(error);
