@@ -234,7 +234,7 @@ rtm.on('message', (message) => {
             
              
   }
-  if(message.text!=null && flag==5)
+  if(message.text!=null && flag==4)
   {
      message.text = striptags(message.text);     
 
