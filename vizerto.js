@@ -36,7 +36,7 @@ var get_vizerto_list=(query)=>{
             	success(friends);
 		})
 		.catch((err) => {
-		  reject(error);
+		  reject(err);
 		});
 	});
 }
