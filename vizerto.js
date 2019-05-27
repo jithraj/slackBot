@@ -30,7 +30,7 @@ var get_vizerto_list=(query)=>{
 	 		 for(var i=0;i<JSON.stringify(res.data.data[0].questions,undefined,2).length;i++){
 	
 	                   if(res.data.data[0].questions[i].answers)
-                              friends.push(res.data[0].questions[i].answers[0].answerText);
+                              friends.push(res.data.data[0].questions[i].answers[0].answerText);
 	            	}
                   //console.log(JSON.stringify(response.data.users[0].name,undefined,2));
             	success(friends);
