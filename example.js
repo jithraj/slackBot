@@ -8,7 +8,7 @@ var striptags = require('striptags');
 var mysql=require("mysql");
 var tweet=require("./tweet.js");
 var attach=require("./attach.js");
-
+var vizerto_query=require("./vizerto.js");
 
 const fs=require("fs");
 
@@ -20,6 +20,7 @@ var port=process.env.PORT || 3000;
 var express=require('express');
 const app = express();
 
+//var query="What is Python
 // app.get('/', (req, res) => res.send('Hello World!'));
 
 var connection=mysql.createConnection({
@@ -267,6 +268,16 @@ rtm.on('message', (message) => {
   if(message.text!=null && flag==4)
   {
      message.text = striptags(message.text);     
+
+	vizerto_query.get_vizerto_list(query).then((res)=>{
+		rtm.sendMessage(`$res`, message.channel).then((res)=>{
+                    //console.log(JSON.stringify(res,undefined,2));
+                }).catch((error)=>{
+                    console.log(error);
+                });		
+	}).catch((err)=>{
+		console.log(err);
+	});
 
      flag=0;
   }
