@@ -270,7 +270,7 @@ rtm.on('message', (message) => {
      message.text = striptags(message.text);     
 
 	vizerto_query.get_vizerto_list(message.text).then((res)=>{
-		rtm.sendMessage(`${res}`, message.channel).then((res)=>{
+		rtm.sendMessage(`${res}`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                 }).catch((error)=>{
                     console.log(error);
