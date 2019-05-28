@@ -54,7 +54,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${message.text}  ${flag}`); 
+  console.log(`Message ${message}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
