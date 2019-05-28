@@ -35,6 +35,10 @@ var get_vizerto_list=(query)=>{
 	                   if(res.data.data[0].questions[i].answers.length>0)
                               friends.push(res.data.data[0].questions[i].answers[0].answerText);
 	            	}
+			if(res.data.data[0].questions.length==0)
+			{
+				friends.push('The question was not answered in vizerto yet....')
+			}
                   //console.log(JSON.stringify(response.data.users[0].name,undefined,2));
             	success(friends);
 		})
