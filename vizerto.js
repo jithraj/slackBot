@@ -28,7 +28,7 @@ var get_vizerto_list=(query)=>{
 
 			 console.log(`Payload`);
 			 console.log(res.data.data[0].questions.length)
-			 console.log(res.data.data[0].questions[i].answers.length)
+			 console.log(res.data.data[0].questions[0].answers.length)
           		 //console.log(JSON.stringify(res.data.data[0].questions[0].answers[0].answerText,undefined,2));
 	 		 for(var i=0;i<JSON.stringify(res.data.data[0].questions,undefined,2).length-1;i++){
 			   console.log(JSON.stringify(res.data.data[0].questions[i].domain,undefined,2));
