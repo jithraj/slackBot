@@ -54,7 +54,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${message}  ${flag}`); 
+  console.log(`Message ${JSON.stringify(message,undefined,2)}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
