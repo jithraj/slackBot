@@ -27,7 +27,7 @@ var get_vizerto_list=(query)=>{
 		.then((res) => {
 
 			 console.log(`Payload`);
-			 console.log(`JSON.stringify(res.data,undefined,2)`);
+			 console.log(JSON.stringify(res.data,undefined,2));
 	 		 for(var i=0;i<JSON.stringify(res.data.data[0].questions,undefined,2).length;i++){
 			   //console.log(JSON.stringify(res.data.data[0],undefined,2));
 	                   if(res.data.data[0].questions[i].answers.length>0)
