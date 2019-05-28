@@ -415,7 +415,7 @@ rtm.on('message', (message) => {
         	{
           		flag=3;
 			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
-          		attach.msg2.channel=payload.channel.id;
+          		attach.msg2.channel=payload.user.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
 				throw {error:"just kidding"};
