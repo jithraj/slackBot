@@ -54,7 +54,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${JSON.stringify(message,undefined,2)}  ${flag}`); 
+  console.log(`Message ${JSON.stringify(message.text,undefined,2)}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
@@ -270,7 +270,7 @@ rtm.on('message', (message) => {
      message.text = striptags(message.text);     
 
 	vizerto_query.get_vizerto_list(message.text).then((res)=>{
-		rtm.sendMessage(`${res}`, message.user.id).then((res)=>{
+		rtm.sendMessage(`${res}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                 }).catch((error)=>{
                     console.log(error);
@@ -414,6 +414,7 @@ rtm.on('message', (message) => {
        	 	if(payload.actions[0].selected_options[0].value=="twitter")
         	{
           		flag=3;
+			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
           		attach.msg2.channel=payload.channel.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
