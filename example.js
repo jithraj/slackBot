@@ -369,7 +369,7 @@ rtm.on('message', (message) => {
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
           		flag=6;
-			console.log(`${payload}`);
+			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
           		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
@@ -415,7 +415,7 @@ rtm.on('message', (message) => {
        	 	if(payload.actions[0].selected_options[0].value=="twitter")
         	{
           		flag=3;
-			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
+			//console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
           		attach.msg2.channel=payload.channel.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
