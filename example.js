@@ -54,7 +54,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${JSON.stringify(message,undefined,2)}  ${flag}`); 
+  console.log(`Message ${JSON.stringify(message.text,undefined,2)}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
@@ -286,7 +286,7 @@ rtm.on('message', (message) => {
      message.text = striptags(message.text);     
 
      tweet.tweet_message(`${message.text}`).then((res)=>{
-		console.log(res);
+		//console.log(res);
 
 		web.chat.postMessage({text:'Your message has been tweeted',channel:message.channel}).then((res)=>{
           		//console.log(res);
@@ -315,7 +315,7 @@ rtm.on('message', (message) => {
         message.text = striptags(message.text);
 	
 	tweet.get_searched_tweets(`${message.text}`).then(function(result){
-	   	 console.log(JSON.stringify(result,undefined,2));
+	   	 //console.log(JSON.stringify(result,undefined,2));
 
 		 /*
 		 web.chat.postMessage({attachments:`${JSON.stringify(result,undefined,2)}`,channel:message.channel}).then((res)=>{
