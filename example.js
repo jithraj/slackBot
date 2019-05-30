@@ -74,6 +74,10 @@ rtm.on('message', (message) => {
 	}
         else
 	{
+
+		console.log(message.text.replace("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," "));
+	
+		/*
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
                 .then((response)=>{
  			console.log(response.data);
@@ -113,6 +117,7 @@ rtm.on('message', (message) => {
 			rtm.sendMessage("Please type the message nicely there is some error.....",message.channel);
                         console.log(error);
                 });
+		*/
 	}
   }
   if (message.text !== null && flag==1)
@@ -269,9 +274,8 @@ rtm.on('message', (message) => {
   {
      message.text = striptags(message.text);     
 
-     console.log(message.text.replace("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," "));
-
-	/*
+     
+	
 	vizerto_query.get_vizerto_list(message.text).then((res)=>{
 		rtm.sendMessage(`${res}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
@@ -281,7 +285,7 @@ rtm.on('message', (message) => {
 	}).catch((err)=>{
 		console.log(err);
 	});
-	*/
+	
      flag=0;
   }
   if(message.text!=null && flag==5)
