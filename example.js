@@ -15,6 +15,7 @@ const fs=require("fs");
 
 const slackInteractions = createMessageAdapter('f39a58a498ddbde21ba757ee89d333ad');
 var token='xoxb-430629803749-502830627862-kFrQxFm0F4AIZh2ddBStx9H4';
+var token1='f39a58a498ddbde21ba757ee89d333ad'
 var port=process.env.PORT || 3000;
 
 var express=require('express');
@@ -37,7 +38,7 @@ connection.query('use slack;',function (error, results, fields) {
 });
 */
 
-const rtm = new RTMClient(token);
+const rtm = new RTMClient(token1);
 const web=new WebClient(token);
 rtm.start();
 
