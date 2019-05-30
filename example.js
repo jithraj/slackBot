@@ -360,11 +360,23 @@ rtm.on('message', (message) => {
         	{
            		flag=5;
            		console.log("SuCeSS");
+
+			
+			web.chat.postMessage({text:'Tweet your message here',channel:payload.user.id}).then((res)=>{
+          			//console.log(res);
+				throw {error:"just kidding"};
+	  		})
+          		.catch((e)=>{
+				console.log(e);
+          		});
+		
+                        /*
            		rtm.sendMessage("Tweet your message here", payload.user.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
            		}).catch((error)=>{
             		console.log(error);
-           		});  
+           		});
+			*/  
                 }
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
