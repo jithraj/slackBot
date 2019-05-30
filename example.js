@@ -75,7 +75,7 @@ rtm.on('message', (message) => {
         else
 	{
 
-		console.log(message.text.replace("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," "));
+		console.log(`Clean Text message.text.replace((@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)," ")`);
 	
 		/*
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
