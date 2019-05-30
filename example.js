@@ -317,7 +317,7 @@ rtm.on('message', (message) => {
 	tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
 
-		 
+		 /*
 		 web.chat.postMessage({attachments:`${JSON.stringify(result,undefined,2)}`,channel:message.channel}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
@@ -326,13 +326,13 @@ rtm.on('message', (message) => {
 			console.log(e);
               	 });
               
-                 /*
-                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.user).then((res)=>{
+                 */
+                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                  }).catch((error)=>{
                     console.log(error);
                  });
-		 
+		 /*
                  var final_msg=`negative tweets:${tweet.n_count1}% positive tweet:${tweet.p_count1}%`;
                  rtm.sendMessage(`${final_msg}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
@@ -353,6 +353,7 @@ rtm.on('message', (message) => {
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
 
+	/*
         web.chat.postMessage({attachments:`${JSON.stringify(response,undefined,2)}`,channel:message.channel}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
@@ -361,13 +362,13 @@ rtm.on('message', (message) => {
              console.log(e);
         });
        
-        /*
-	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.user).then((res)=>{
-                    //console.log(JSON.stringify(res,undefined,2));
-           }).catch((error)=>{
+        */
+		rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.channel).then((res)=>{
+              		 //console.log(JSON.stringify(res,undefined,2));
+      	        }).catch((error)=>{
                     console.log(error);
-           });
-	*/
+        	});
+	
 
 	}).catch((error)=>{
 	   console.log(error);
