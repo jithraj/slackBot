@@ -287,11 +287,22 @@ rtm.on('message', (message) => {
 
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
+
+		web.chat.postMessage({text:'Your message has been tweeted',channel:message.user}).then((res)=>{
+          		//console.log(res);
+			//throw {error:"just kidding"};
+	  	})
+       		.catch((e)=>{
+			console.log(e);
+          	});
+
+		/*
 		rtm.sendMessage(`Your message has been tweeted`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                 }).catch((error)=>{
                     console.log(error);
                 });
+		*/
      }).catch((err)=>{
 		console.log(err);
      })
@@ -305,12 +316,23 @@ rtm.on('message', (message) => {
 	
 	tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
+
+		 
+		 web.chat.postMessage({text:`${JSON.stringify(result,undefined,2)}`,channel:message.user}).then((res)=>{
+          		//console.log(res);
+			//throw {error:"just kidding"};
+	  	 })
+       		 .catch((e)=>{
+			console.log(e);
+              	 });
+              
+                 /*
                  rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                  }).catch((error)=>{
                     console.log(error);
                  });
-                 /*
+		 
                  var final_msg=`negative tweets:${tweet.n_count1}% positive tweet:${tweet.p_count1}%`;
                  rtm.sendMessage(`${final_msg}`, message.channel).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
@@ -330,11 +352,23 @@ rtm.on('message', (message) => {
          message.text = striptags(message.text);
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
+
+        web.chat.postMessage({text:`${JSON.stringify(response,undefined,2)}`,channel:message.user}).then((res)=>{
+          		//console.log(res);
+			//throw {error:"just kidding"};
+        })
+   	.catch((e)=>{
+             console.log(e);
+        });
+       
+        /*
 	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
            }).catch((error)=>{
                     console.log(error);
            });
+	*/
+
 	}).catch((error)=>{
 	   console.log(error);
 	});
@@ -364,7 +398,7 @@ rtm.on('message', (message) => {
 			
 			web.chat.postMessage({text:'Tweet your message here',channel:payload.user.id}).then((res)=>{
           			//console.log(res);
-				throw {error:"just kidding"};
+				//throw {error:"just kidding"};
 	  		})
           		.catch((e)=>{
 				console.log(e);
@@ -382,21 +416,45 @@ rtm.on('message', (message) => {
 		{
           		flag=6;
 			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
+
+			web.chat.postMessage({text:'Type your message here',channel:payload.user.id}).then((res)=>{
+          			//console.log(res);
+				//throw {error:"just kidding"};
+	  		})
+          		.catch((e)=>{
+				console.log(e);
+          		});
+
+                        /*
           		rtm.sendMessage("Type your message here", payload.user.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
           		});
+                        */
 		}
 
 		if(payload.actions[0].value=="get_friends")
 		{
           		flag=7;
+
+			
+			web.chat.postMessage({text:'Type your Profile code here',channel:payload.user.id}).then((res)=>{
+          			//console.log(res);
+				//throw {error:"just kidding"};
+	  		})
+          		.catch((e)=>{
+				console.log(e);
+          		});
+
+			
+			/*
           		rtm.sendMessage("Type your Profile code here", payload.user.id).then((res)=>{
            		 //console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
           		});
+			*/
 		}
 	}
 
