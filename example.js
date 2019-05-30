@@ -75,9 +75,9 @@ rtm.on('message', (message) => {
         else
 	{
 
-	        message.text=message.text.replace(/(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)/g,"");
+	        console.log(${message.text=message.text.replace(/(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)/g,"")});
 	
-		/*
+		
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
                 .then((response)=>{
  			console.log(response.data);
@@ -117,7 +117,7 @@ rtm.on('message', (message) => {
 			rtm.sendMessage("Please type the message nicely there is some error.....",message.channel);
                         console.log(error);
                 });
-		*/
+		
 	}
   }
   if (message.text !== null && flag==1)
