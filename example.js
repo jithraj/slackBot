@@ -287,7 +287,7 @@ rtm.on('message', (message) => {
 
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
-		rtm.sendMessage(`Your message has been tweeted`, message.channel).then((res)=>{
+		rtm.sendMessage(`Your message has been tweeted`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                 }).catch((error)=>{
                     console.log(error);
@@ -305,7 +305,7 @@ rtm.on('message', (message) => {
 	
 	tweet.get_searched_tweets(`${message.text}`).then(function(result){
 	   	 console.log(JSON.stringify(result,undefined,2));
-                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.channel).then((res)=>{
+                 rtm.sendMessage(`${JSON.stringify(result,undefined,2)}`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
                  }).catch((error)=>{
                     console.log(error);
@@ -330,7 +330,7 @@ rtm.on('message', (message) => {
          message.text = striptags(message.text);
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
-	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.channel).then((res)=>{
+	   rtm.sendMessage(`${JSON.stringify(response,undefined,2)}`, message.user).then((res)=>{
                     //console.log(JSON.stringify(res,undefined,2));
            }).catch((error)=>{
                     console.log(error);
@@ -360,7 +360,7 @@ rtm.on('message', (message) => {
         	{
            		flag=5;
            		console.log("SuCeSS");
-           		rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
+           		rtm.sendMessage("Tweet your message here", payload.user.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
            		}).catch((error)=>{
             		console.log(error);
@@ -370,7 +370,7 @@ rtm.on('message', (message) => {
 		{
           		flag=6;
 			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
-          		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
+          		rtm.sendMessage("Type your message here", payload.user.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
@@ -380,7 +380,7 @@ rtm.on('message', (message) => {
 		if(payload.actions[0].value=="get_friends")
 		{
           		flag=7;
-          		rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
+          		rtm.sendMessage("Type your Profile code here", payload.user.id).then((res)=>{
            		 //console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
@@ -416,7 +416,7 @@ rtm.on('message', (message) => {
         	{
           		flag=3;
 			//console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
-          		attach.msg2.channel=payload.channel.id;
+          		attach.msg2.channel=payload.user.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
 				throw {error:"just kidding"};
