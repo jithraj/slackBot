@@ -54,7 +54,7 @@ rtm.on('message', (message) => {
     return;
   }
 
-  console.log(`Message ${JSON.stringify(message.text,undefined,2)}  ${flag}`); 
+  console.log(`Message ${JSON.stringify(message,undefined,2)}  ${flag}`); 
 
   if(message.text!=null && flag==0)
   {
@@ -360,7 +360,7 @@ rtm.on('message', (message) => {
         	{
            		flag=5;
            		console.log("SuCeSS");
-           		rtm.sendMessage("Tweet your message here", payload.user.id).then((res)=>{
+           		rtm.sendMessage("Tweet your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
            		}).catch((error)=>{
             		console.log(error);
@@ -370,7 +370,7 @@ rtm.on('message', (message) => {
 		{
           		flag=6;
 			console.log(`${payload}`);
-          		rtm.sendMessage("Type your message here", payload.user.id).then((res)=>{
+          		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
@@ -380,7 +380,7 @@ rtm.on('message', (message) => {
 		if(payload.actions[0].value=="get_friends")
 		{
           		flag=7;
-          		rtm.sendMessage("Type your Profile code here", payload.user.id).then((res)=>{
+          		rtm.sendMessage("Type your Profile code here", payload.channel.id).then((res)=>{
            		 //console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
             		console.log(error);
@@ -416,7 +416,7 @@ rtm.on('message', (message) => {
         	{
           		flag=3;
 			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
-          		attach.msg2.channel=payload.user.id;
+          		attach.msg2.channel=payload.channel.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
 				throw {error:"just kidding"};
