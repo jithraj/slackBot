@@ -64,7 +64,7 @@ var msg1={
                             "value": "twitter"
                         },
                         {
-                            "text": "Our App",
+                            "text": "Weather",
                             "value": "weather"
                        },
 		       {
