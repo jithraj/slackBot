@@ -318,7 +318,7 @@ rtm.on('message', (message) => {
 	   	 console.log(JSON.stringify(result,undefined,2));
 
 		 
-		 web.chat.postMessage({text:`${JSON.stringify(result,undefined,2)}`,channel:message.user}).then((res)=>{
+		 web.chat.postMessage({attachments:`${JSON.stringify(result,undefined,2)}`,channel:message.user}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
 	  	 })
@@ -353,7 +353,7 @@ rtm.on('message', (message) => {
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
 
-        web.chat.postMessage({text:`${JSON.stringify(response,undefined,2)}`,channel:message.user}).then((res)=>{
+        web.chat.postMessage({attachments:`${JSON.stringify(response,undefined,2)}`,channel:message.user}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
         })
