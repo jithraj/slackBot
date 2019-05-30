@@ -369,7 +369,7 @@ rtm.on('message', (message) => {
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
           		flag=6;
-			//console.log(`${payload}`);
+			console.log(`${payload}`);
           		rtm.sendMessage("Type your message here", payload.channel.id).then((res)=>{
             		//console.log(JSON.stringify(res,undefined,2));
           		}).catch((error)=>{
@@ -456,7 +456,7 @@ app.post('/',(req,res)=>{
 });
 */
 
-//"test": "echo \"Error: no test specified\" && exit 1",
+//
 
 app.listen(port,()=>{
   console.log(`server is started at Port ${port}`)
