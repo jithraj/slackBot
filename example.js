@@ -288,7 +288,7 @@ rtm.on('message', (message) => {
      tweet.tweet_message(`${message.text}`).then((res)=>{
 		console.log(res);
 
-		web.chat.postMessage({text:'Your message has been tweeted',channel:message.user}).then((res)=>{
+		web.chat.postMessage({text:'Your message has been tweeted',channel:message.channel}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
 	  	})
@@ -318,7 +318,7 @@ rtm.on('message', (message) => {
 	   	 console.log(JSON.stringify(result,undefined,2));
 
 		 
-		 web.chat.postMessage({attachments:`${JSON.stringify(result,undefined,2)}`,channel:message.user}).then((res)=>{
+		 web.chat.postMessage({attachments:`${JSON.stringify(result,undefined,2)}`,channel:message.channel}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
 	  	 })
@@ -353,7 +353,7 @@ rtm.on('message', (message) => {
 	
 	tweet.get_friends_list(`${message.text}`).then((response)=>{
 
-        web.chat.postMessage({attachments:`${JSON.stringify(response,undefined,2)}`,channel:message.user}).then((res)=>{
+        web.chat.postMessage({attachments:`${JSON.stringify(response,undefined,2)}`,channel:message.channel}).then((res)=>{
           		//console.log(res);
 			//throw {error:"just kidding"};
         })
@@ -396,7 +396,7 @@ rtm.on('message', (message) => {
            		console.log("SuCeSS");
 
 			
-			web.chat.postMessage({text:'Tweet your message here',channel:payload.user.id}).then((res)=>{
+			web.chat.postMessage({text:'Tweet your message here',channel:payload.channel.id}).then((res)=>{
           			//console.log(res);
 				//throw {error:"just kidding"};
 	  		})
@@ -417,7 +417,7 @@ rtm.on('message', (message) => {
           		flag=6;
 			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
 
-			web.chat.postMessage({text:'Type your message here',channel:payload.user.id}).then((res)=>{
+			web.chat.postMessage({text:'Type your message here',channel:payload.channel.id}).then((res)=>{
           			//console.log(res);
 				//throw {error:"just kidding"};
 	  		})
@@ -439,7 +439,7 @@ rtm.on('message', (message) => {
           		flag=7;
 
 			
-			web.chat.postMessage({text:'Type your Profile code here',channel:payload.user.id}).then((res)=>{
+			web.chat.postMessage({text:'Type your Profile code here',channel:payload.channel.id}).then((res)=>{
           			//console.log(res);
 				//throw {error:"just kidding"};
 	  		})
@@ -486,7 +486,7 @@ rtm.on('message', (message) => {
         	{
           		flag=3;
 			//console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
-          		attach.msg2.channel=payload.user.id;
+          		attach.msg2.channel=payload.channel.id;
   	  		web.chat.postMessage(attach.msg2).then((res)=>{
           			console.log(res);
 				throw {error:"just kidding"};
