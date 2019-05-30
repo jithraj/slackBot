@@ -394,7 +394,7 @@ rtm.on('message', (message) => {
         	if(payload.actions[0].value=="tweet")
         	{
            		flag=5;
-           		console.log("SuCeSS");
+           		//console.log("SuCeSS");
 
 			
 			web.chat.postMessage({text:'Tweet your message here',channel:payload.channel.id}).then((res)=>{
@@ -416,7 +416,7 @@ rtm.on('message', (message) => {
         	if(payload.actions[0].value=="Analyse_tweets")
 		{
           		flag=6;
-			console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
+			//console.log(`Payload ${JSON.stringify(payload,undefined,2)}`)
 
 			web.chat.postMessage({text:'Type your message here',channel:payload.channel.id}).then((res)=>{
           			//console.log(res);
