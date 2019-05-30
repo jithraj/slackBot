@@ -59,6 +59,7 @@ rtm.on('message', (message) => {
   if(message.text!=null && flag==0)
   {
 	message.text = striptags(message.text);
+        console.log(`${message.text}`);
 
 	if(message.text.includes("vizerto"))
 	{
@@ -76,7 +77,7 @@ rtm.on('message', (message) => {
 	{
 		message.text=message.text.replace(/(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)/g,"");
 
-	        //console.log(${message.text});
+	        console.log(`${message.text}`);
 	
 		
 		axios.get(`https:\/\/lit-coast-60712.herokuapp.com\/?q=${message.text}`)
