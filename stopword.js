@@ -10,6 +10,7 @@ exports.removeStopwords = function(tokens, stopwords) {
   })
 }
 
+/*
 exports.ar = require('./stopwords_ar.js').words
 exports.bn = require('./stopwords_bn.js').words
 exports.br = require('./stopwords_br.js').words
@@ -38,3 +39,4 @@ exports.sw = require('./stopwords_sw.js').words
 exports.yo = require('./stopwords_yo.js').words
 exports.zh = require('./stopwords_zh.js').words
 exports.zu = require('./stopwords_zu.js').words
+*/
