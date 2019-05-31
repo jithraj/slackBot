@@ -34,7 +34,7 @@ var get_vizerto_list=(query)=>{
 	 		 for(var i=0;i<res.data.data[0].questions.length;i++){
 			   console.log(JSON.stringify(res.data.data[0].questions[i].domain,undefined,2));
 	                   if(res.data.data[0].questions[i].answers.length>0)
-                              friends.push({striptags(res.data.data[0].questions[i].answers[0].answerText)});
+                              friends.push(striptags(res.data.data[0].questions[i].answers[0].answerText));
 	            	}
 			if(res.data.data[0].questions.length==0)
 			{
