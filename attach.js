@@ -52,7 +52,7 @@ var msg1={
             "actions": [
                 {
                     "name": "games_list",
-                    "text": "Pick a game...",
+                    "text": "Pick a Platform...",
                     "type": "select",
                     "options": [
                         {
