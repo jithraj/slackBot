@@ -2,6 +2,7 @@ const request = require('request');
 const OAuth   = require('oauth-1.0a');
 const crypto  = require('crypto');
 const axios=require('axios');
+var striptags = require('striptags');
 
 var get_vizerto_list=(query)=>{
     //get Friends list from twitter
@@ -33,7 +34,7 @@ var get_vizerto_list=(query)=>{
 	 		 for(var i=0;i<res.data.data[0].questions.length;i++){
 			   console.log(JSON.stringify(res.data.data[0].questions[i].domain,undefined,2));
 	                   if(res.data.data[0].questions[i].answers.length>0)
-                              friends.push(res.data.data[0].questions[i].answers[0].answerText);
+                              friends.push(striptags(res.data.data[0].questions[i].answers[0].answerText));
 	            	}
 			if(res.data.data[0].questions.length==0)
 			{
