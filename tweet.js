@@ -39,8 +39,8 @@ var get_friends_list=(user_id)=>{
  
     console.log(user_id);
     const request_data = {
-       url: 'https://api.twitter.com/1.1/friends/list.json?cursor=-1&user_id=4301843594',
-      // url: `https://api.twitter.com/1.1/friends/list.json?cursor=-1&user_id=${user_id}`,
+       //url: 'https://api.twitter.com/1.1/friends/list.json?cursor=-1&user_id=4301843594',
+       url: `https://api.twitter.com/1.1/friends/list.json?cursor=-1&user_id=${user_id}`,
       method: 'GET'
     };
     
