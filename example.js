@@ -3,7 +3,7 @@ const { WebClient } = require('@slack/client');
 const { createMessageAdapter } = require('@slack/interactive-messages');
 const {parse, stringify} = require('flatted/cjs');
 const axios=require('axios');
-const stopword=require('stopword');
+const stopword=require('./stopword.js');
 var striptags = require('striptags');
 var mysql=require("mysql");
 var tweet=require("./tweet.js");
@@ -154,7 +154,8 @@ rtm.on('message', (message) => {
 
 	var pieces = message.text.split(' ')
 	var newString = stopword.removeStopwords(pieces);
-
+	console.log(`NewString ${newString}`);	
+	
         var i=0,t;
         var reply='';
                       
