@@ -26,12 +26,6 @@ const token = {
   secret: 'Nu0KrZGnp4ipNhHaPP5hYIVjB43SeTKj0w8n1MiDDANc3'
 };
  
-//  console.log(JSON.stringify({
-//   url: request_data.url,
-//   method: request_data.method,
-//   headers: oauth.toHeader(oauth.authorize(request_data, token))
-// },undefined,2));
-
 var n_count1,p_count1;
 
 var get_friends_list=(user_id)=>{
@@ -151,35 +145,6 @@ var tweet_message=(text)=>{
 
 }
 
-
-// console.log(request_data_tweet);
-
-// get_searched_tweets('Narendra Modi').then(function(result){
-//      console.log(JSON.stringify(result,undefined,2));
-// }).catch(function(error){
-//      console.log(error);
-// });
-
-// get_friends_list(923575232216125440).then((response)=>{
-//   console.log(response);
-// }).catch((error)=>{
-//   console.log(error);
-// });
-
-// console.log(sentiment.analyze('You are intelligent and dumb.'));
-
-// { score: -3,
-//   comparative: -0.75,
-//   tokens: [ 'you', 'are', 'so', 'bad' ],
-//   words: [ 'bad' ],
-//   positive: [],
-//   negative: [ 'bad' ] }
-
-//tweet_message("Hey how are you").then((res)=>{
-//	console.log(res);
-//}).catch((err)=>{
-//	console.log(err);
-//})
 
 module.exports={ 
     tweet_message:tweet_message,
