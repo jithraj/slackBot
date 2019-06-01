@@ -75,6 +75,8 @@ rtm.on('message', (message) => {
 	}
         else
 	{
+                 console.log(`Before that code ${message.text}`);
+
 		message.text=message.text.replace(/(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)/g,"");
 
 	        console.log(`${message.text}`);
