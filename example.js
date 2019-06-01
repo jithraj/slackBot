@@ -37,7 +37,7 @@ connection.query('use slack;',function (error, results, fields) {
 });
 */
 
-const rtm = new RTMClient(token);
+const rtm = new RTMClient(token);https://en.wikipedia.org/w/api.php
 const web=new WebClient(token);
 rtm.start();
 
@@ -505,6 +505,7 @@ rtm.on('message', (message) => {
           		.catch((e)=>{
 				console.log(e);
           		});
+			flag=0;
         	}
                 if(payload.actions[0].selected_options[0].value=="vizerto")
         	{
