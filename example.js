@@ -37,7 +37,7 @@ connection.query('use slack;',function (error, results, fields) {
 });
 */
 
-const rtm = new RTMClient(token);https://en.wikipedia.org/w/api.php
+const rtm = new RTMClient(token);
 const web=new WebClient(token);
 rtm.start();
 
