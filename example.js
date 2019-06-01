@@ -295,8 +295,9 @@ rtm.on('message', (message) => {
   {
      message.text = striptags(message.text);     
 
+
      tweet.tweet_message(`${message.text}`).then((res)=>{
-		//console.log(res);
+		//console.log(`Timepass ${res}`);
 
 		web.chat.postMessage({text:'Your message has been tweeted',channel:message.channel}).then((res)=>{
           		//console.log(res);
